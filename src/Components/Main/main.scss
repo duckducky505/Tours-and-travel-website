@@ -1,0 +1,220 @@
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --gradientColor: linear-gradient(135deg, #0073a8 0%, #10b5cb 100%);
+  --whiteColor: #ffffff;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
+  --bodyColor: #f4f7f9;
+  --cardShadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.main {
+  padding-top: 4rem;
+
+  .secHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    gap: 1rem;
+
+    .spanText {
+      color: var(--secondary-color);
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      color: var(--blackColor);
+      font-weight: 800;
+      margin-top: 0.5rem;
+    }
+
+    .viewAllBtn {
+      background: transparent;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+    }
+  }
+
+  .secContent {
+    gap: 2rem;
+
+    .singleDestination {
+      background: var(--whiteColor);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: var(--cardShadow);
+      display: flex;
+      flex-direction: column;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+        .imageDiv img {
+          transform: scale(1.1);
+        }
+        
+        .detailsBtn {
+          background: var(--blackColor);
+          color: white;
+        }
+      }
+
+      .imageDiv {
+        position: relative;
+        height: 250px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: 1.5s ease;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.5));
+        }
+
+        .gradeBadge {
+          position: absolute;
+          top: 15px; left: 15px;
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(5px);
+          color: var(--blackColor);
+          padding: 5px 12px;
+          border-radius: 30px;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        .priceBadge {
+          position: absolute;
+          bottom: 15px; right: 15px;
+          background: var(--gradientColor);
+          color: white;
+          padding: 8px 15px;
+          border-radius: 10px;
+          font-weight: 800;
+          font-size: 1.2rem;
+        }
+      }
+
+      .cardInfo {
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        .destHeader {
+          margin-bottom: 1rem;
+
+          .destTitle {
+            font-size: 1.4rem;
+            color: var(--blackColor);
+            margin-bottom: 5px;
+          }
+
+          .location {
+            gap: 5px;
+            color: var(--textColor);
+            font-size: 13px;
+            .icon { color: var(--secondary-color); }
+          }
+        }
+
+        .desc p {
+          color: var(--textColor);
+          font-size: 14px;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .detailsBtn {
+          margin-top: auto;
+          width: 100%;
+          justify-content: center;
+          gap: 5px;
+          background: var(--whiteColorDream);
+          color: var(--blackColor);
+          padding: 12px;
+          border-radius: 12px;
+          font-weight: 700;
+          transition: 0.3s;
+          text-decoration: none;
+
+          .icon { 
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main .secHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    .btnDiv { 
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .secContent { grid-template-columns: repeat(2, 1fr);
+  
+    .cardInfo{
+      .destHeader{
+        align-items: center;
+        text-align: left;
+        .location{
+          justify-content: left;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .secContent { 
+    grid-template-columns: repeat(3, 1fr); 
+
+    .cardInfo{
+      .destHeader{
+        align-items: center;
+        text-align: center;
+        .destTitle{
+          font-size: 1.2em;
+        }
+        .location{
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
+  --whiteColor: #ffffff;
+  --bodyColor: #f8fafb;
+}
+
+.intro-section {
+  padding: 8rem 0;
+  background: var(--whiteColor);
+  overflow: hidden;
+
+  .intro-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  /* Visual Block Styling */
+  .visual-block {
+    position: relative;
+
+    .image-container {
+      position: relative;
+      z-index: 2;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+
+      .main-img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+
+      &:hover .main-img {
+        transform: scale(1.05);
+      }
+    }
+
+    .experience-tag {
+      position: absolute;
+      bottom: 40px;
+      right: -30px;
+      background: var(--primary-color);
+      color: white;
+      padding: 20px 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      z-index: 3;
+
+      strong { font-size: 2rem; display: block; line-height: 1; }
+      span { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+    }
+
+    .decorative-shape {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      background: var(--secondary-color);
+      opacity: 0.1;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      z-index: 1;
+    }
+  }
+
+  /* Content Block Styling */
+  .content-block {
+    .subtitle {
+      color: var(--secondary-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .title {
+      font-size: 3.5rem;
+      color: var(--blackColor);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      font-weight: 800;
+    }
+
+    .highlight-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--secondary-color);
+      padding-left: 20px;
+    }
+
+    .main-para {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--textColor);
+      margin-bottom: 3rem;
+    }
+
+    /* Trust Grid - Modern Chips */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--bodyColor);
+        padding: 15px;
+        border-radius: 12px;
+        transition: 0.3s;
+
+        .icon {
+          font-size: 1.5rem;
+          color: var(--primary-color);
+        }
+
+        span {
+          font-weight: 700;
+          font-size: 0.9rem;
+          color: var(--blackColor);
+        }
+
+        &:hover {
+          background: var(--primary-color);
+          transform: translateY(-5px);
+          .icon, span { color: white; }
+        }
+      }
+    }
+
+    .cta-btn {
+      background: var(--blackColor);
+      color: white;
+      border: none;
+      padding: 18px 40px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: var(--primary-color);
+        box-shadow: 0 10px 20px rgba(0, 115, 168, 0.2);
+      }
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    padding: 5rem 0;
+    .intro-wrapper {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    .visual-block .image-container .main-img {
+      height: 400px;
+    }
+    .content-block .title {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .visual-block .experience-tag {
+      right: 0;
+      bottom: 20px;
+    }
+    .trust-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

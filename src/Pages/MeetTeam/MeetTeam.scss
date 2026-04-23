@@ -1,0 +1,152 @@
+/* --- Variables --- */
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --whiteColor: #ffffff;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
+  --bodyColor: #f4f7f9;
+}
+
+.team-page {
+  padding: 8rem 0;
+  background: var(--bodyColor);
+
+  .secHeader {
+    text-align: center;
+    margin-bottom: 5rem;
+    .spanText { color: var(--secondary-color); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .title { font-size: 3rem; color: var(--blackColor); margin: 0.5rem 0; font-weight: 800;}
+  }
+
+  .teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 4rem; // Increased gap for a cleaner look
+
+    .memberWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .teamCard {
+        background: var(--whiteColor);
+        border-radius: 20px;
+        padding: 15px;
+        transition: 0.4s ease-in-out;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+        .imgDiv {
+          position: relative;
+          height: 350px;
+          border-radius: 15px;
+          overflow: hidden;
+          margin-bottom: 1.5rem;
+
+          img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+
+          .socialOverlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 115, 168, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            opacity: 0;
+            transition: 0.4s;
+            .icon { color: white; font-size: 1.8rem; cursor: pointer; &:hover { color: var(--blackColor); } }
+          }
+        }
+
+        .info {
+          text-align: left;
+          padding-left: 10px;
+          h4 { color: var(--blackColor); font-size: 1.5rem; margin-bottom: 2px; }
+          .role { color: var(--secondary-color); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        }
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+          .imgDiv img { transform: scale(1.1); }
+          .socialOverlay { opacity: 1; }
+        }
+      }
+
+      /* External Description Styling */
+      .externalDesc {
+        padding: 0 10px;
+        border-left: 2px solid var(--secondary-color); // Accent line
+        
+        p {
+          color: var(--textColor);
+          font-size: 1rem;
+          line-height: 1.6;
+          font-style: italic; // Makes it feel more like a testimonial/bio
+        }
+      }
+    }
+  }
+}
+
+/* --- Associates Styling (Mosaic Design) --- */
+.associates-section {
+  position: relative;
+  padding: 8rem 0;
+  background: var(--whiteColor);
+  overflow: hidden;
+
+  .bg-blur-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(16, 181, 203, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    @media (max-width: 1024px) { flex-direction: column; text-align: center; }
+  }
+
+  .header-wrapper {
+    flex: 1;
+    .main-title { font-size: 2.8rem; color: var(--blackColor); line-height: 1.2; span { color: var(--primary-color); } }
+  }
+
+  .associates-display {
+    flex: 1.5;
+    position: relative;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    .associate-blob {
+      position: absolute;
+      .inner-card {
+        width: 100%; height: 100%;
+        background: white;
+        border-radius: 50%;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        display: flex; align-items: center; justify-content: center;
+        img { width: 80%; filter: grayscale(100%); transition: 0.4s; }
+      }
+      &:hover .inner-card img { filter: grayscale(0%); transform: scale(1.1); }
+    }
+    
+    /* Mosaic Grid Positions */
+    .blob-1 { top: 10%; left: 10%; width: 140px; height: 140px; }
+    .blob-2 { top: 0%; right: 15%; width: 110px; height: 110px; }
+    .blob-3 { bottom: 15%; left: 25%; width: 130px; height: 130px; }
+    .blob-4 { bottom: 5%; right: 20%; width: 150px; height: 150px; }
+    .blob-5 { top: 40%; right: 0%; width: 100px; height: 100px; }
+  }
+}

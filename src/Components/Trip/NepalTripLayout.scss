@@ -1,0 +1,250 @@
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --gradientColor: linear-gradient(135deg, #0073a8 0%, #10b5cb 100%);
+  --whiteColor: #ffffff;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
+  --bodyColor: #f8fafb;
+  --whiteColorDream: #eef2f5;
+}
+
+
+.trip-page {
+  background: var(--bodyColor);
+  padding-bottom: 5rem;
+
+  .trip-hero {
+    height: 60vh;
+    min-height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--whiteColor);
+    text-align: center;
+
+    .hero-content {
+      .badge {
+        background: var(--secondary-color);
+        padding: 6px 15px;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        margin: 1.5rem 0;
+        font-weight: 800;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      }
+
+      .hero-meta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        
+        .divider { opacity: 0.5; }
+      }
+    }
+  }
+
+  .floating-bar {
+    background: var(--whiteColor);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    padding: 1.5rem 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    margin-top: -4rem;
+    position: relative;
+    z-index: 10;
+    align-items: center;
+
+    .bar-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      border-right: 1px solid var(--whiteColorDream);
+
+      .icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        background: var(--whiteColorDream);
+        padding: 10px;
+        border-radius: 12px;
+      }
+
+      small { color: var(--textColor); display: block; }
+      p { font-weight: 700; color: var(--blackColor); margin: 0; }
+    }
+
+    .price-item {
+      border: none;
+      justify-content: flex-end;
+      gap: 25px;
+
+      .price-text {
+        text-align: right;
+        h3 { font-size: 1.8rem; color: var(--primary-color); margin: 0; }
+      }
+
+      .book-btn {
+        background: var(--gradientColor);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 115, 168, 0.3); }
+      }
+    }
+  }
+
+  /* Tab Nav */
+  .tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0 2rem;
+
+    button {
+      padding: 12px 30px;
+      border: none;
+      background: transparent;
+      font-weight: 700;
+      color: var(--textColor);
+      cursor: pointer;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+
+      &.active {
+        background: var(--blackColor);
+        color: var(--whiteColor);
+      }
+    }
+  }
+
+  /* Main Card */
+  .main-content-card {
+    background: var(--whiteColor);
+    padding: 3.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+
+    .tab-panel {
+      h3 { font-size: 2rem; margin-bottom: 2rem; color: var(--blackColor); }
+      .description-text { line-height: 2; font-size: 1.15rem; color: var(--textColor); }
+    }
+
+    /* Timeline */
+    .timeline {
+      .timeline-item {
+        display: flex;
+        gap: 2.5rem;
+        padding-bottom: 2.5rem;
+        position: relative;
+
+        &:not(:last-child)::before {
+          content: '';
+          position: absolute;
+          left: 45px;
+          top: 50px;
+          bottom: 0;
+          width: 2px;
+          background: var(--whiteColorDream);
+        }
+
+        .day-circle {
+          min-width: 90px;
+          height: 45px;
+          background: var(--primary-color);
+          color: white;
+          border-radius: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          z-index: 1;
+        }
+
+        h4 { font-size: 1.3rem; margin: 0 0 8px 0; color: var(--blackColor); }
+        p { margin: 0; color: var(--textColor); }
+      }
+    }
+
+    /* Inclusions Grid */
+    .inclusions-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+        li {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 15px;
+          font-weight: 500;
+          .check-icon { color: #27ae60; font-size: 1.4rem; }
+          .close-icon { color: #e74c3c; font-size: 1.4rem; }
+        }
+      }
+    }
+  }
+
+  /* Help Section */
+  .help-section {
+    margin-top: 3rem;
+    background: var(--blackColor);
+    color: white;
+    padding: 3.5rem;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.8), transparent), url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+
+    h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    p { opacity: 0.8; margin: 0; font-size: 1.1rem; }
+
+    .contact-btn {
+      background: var(--whiteColor);
+      color: var(--blackColor);
+      border: none;
+      padding: 15px 40px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover { background: var(--secondary-color); color: white; }
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .floating-bar { grid-template-columns: 1fr; gap: 1.5rem; .bar-item { border: none; } .price-item { justify-content: center; text-align: center; .price-text { text-align: center; } } }
+    .inclusions-split { grid-template-columns: 1fr; }
+    .help-section { flex-direction: column; text-align: center; gap: 2rem; }
+  }
+}
+
+.fade-in { animation: fadeIn 0.6s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
