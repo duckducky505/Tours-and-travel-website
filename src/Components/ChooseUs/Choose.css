@@ -1,0 +1,191 @@
+/* --- Variables & Core Settings --- */
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
+  --whiteColor: #ffffff;
+  --greyText: #9ca3af;
+  --bodyColor: #f8fafb;
+}
+
+/* --- Component Base Styles --- */
+.why-choose-us {
+  padding: 8rem 0;
+  background: var(--bodyColor);
+  overflow: hidden;
+  /* Layout Container */
+}
+.why-choose-us .main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: center;
+}
+.why-choose-us {
+  /* Left Side: Content & Branding */
+}
+.why-choose-us .content-side .subtitle {
+  color: var(--secondary-color);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.why-choose-us .content-side .title {
+  font-size: 3rem;
+  color: var(--blackColor);
+  line-height: 1.2;
+  margin: 1.5rem 0;
+  font-weight: 800;
+}
+.why-choose-us .content-side .title span {
+  color: var(--primary-color);
+}
+.why-choose-us .content-side p {
+  color: var(--textColor);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+.why-choose-us .content-side .trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--whiteColor);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.why-choose-us .content-side .trust-badge .badge-icon {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  flex-shrink: 0;
+}
+.why-choose-us .content-side .trust-badge .badge-text strong {
+  display: block;
+  color: var(--blackColor);
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.why-choose-us .content-side .trust-badge .badge-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--greyText);
+  line-height: 1.2;
+}
+.why-choose-us {
+  /* Right Side: Feature Cards */
+}
+.why-choose-us .features-side .features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.why-choose-us .features-side .features-grid .feature-card {
+  background: var(--whiteColor);
+  padding: 2.5rem 2rem;
+  border-radius: 2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+.why-choose-us .features-side .features-grid .feature-card .icon-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(16, 181, 203, 0.1);
+  color: var(--primary-color);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  transition: 0.3s;
+}
+.why-choose-us .features-side .features-grid .feature-card h4 {
+  font-size: 1.3rem;
+  color: var(--blackColor);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.why-choose-us .features-side .features-grid .feature-card p {
+  font-size: 0.95rem;
+  color: var(--textColor);
+  line-height: 1.6;
+  margin: 0;
+}
+.why-choose-us .features-side .features-grid .feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  border-color: var(--secondary-color);
+}
+.why-choose-us .features-side .features-grid .feature-card:hover .icon-box {
+  background: var(--primary-color);
+  color: var(--whiteColor);
+  transform: rotate(10deg);
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 1024px) {
+  .why-choose-us {
+    padding: 5rem 0;
+  }
+  .why-choose-us .main-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 4rem;
+  }
+  .why-choose-us .content-side .title {
+    font-size: 2.5rem;
+  }
+  .why-choose-us .content-side p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .why-choose-us .content-side .trust-badge {
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .why-choose-us .features-side .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .why-choose-us .content-side .title {
+    font-size: 2.2rem;
+  }
+  .why-choose-us .content-side {
+    /* Vertical alignment fix for trust badge */
+  }
+  .why-choose-us .content-side .trust-badge {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  .why-choose-us .content-side .trust-badge .badge-text strong {
+    font-size: 1.1rem;
+  }
+  .why-choose-us .features-side .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-choose-us .features-side .features-grid .feature-card {
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .why-choose-us .features-side .features-grid .feature-card .icon-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}/*# sourceMappingURL=Choose.css.map */

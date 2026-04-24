@@ -11,65 +11,72 @@ import img9 from '../../assets/mountain_peak.jpg';
 const Data = [
   {
     id: 1,
-    slug: "boudhanath-stupa",
+    slug: "kathmandu-valley-tour",
     imgSrc: img1,
-    destTitle: "Boudhanath Stupa",
-    location: "Kathmandu",
-    grade: "CULTURAL HERITAGE",
-    fees: "$50",
-    duration: "1 Day",
-    tagline: "Spiritual Harmony",
-    description: "Dominating the skyline, Boudhanath Stupa is one of the largest spherical stupas in the world. This UNESCO World Heritage site serves as a beacon of Buddhist culture in Nepal. As you walk clockwise around the massive dome, you'll be immersed in the scent of incense and the sound of chanting monks. The area is a vibrant Tibetan enclave, filled with colorful prayer flags, intricate mandalas, and hidden rooftop cafes that offer a panoramic view of the 'all-seeing eyes' of Buddha.",
+    destTitle: "Vibrant Kathmandu Tour",
+    location: "Kathmandu Valley",
+    grade: "CULTURAL & HERITAGE",
+    fees: "$350",
+    duration: "4 Days",
+    tagline: "UNESCO World Heritage Circuit",
+    description: "Immerse yourself in the living history of the Kathmandu Valley. This comprehensive 4-day journey takes you through the three ancient kingdoms: Kathmandu, Patan, and Bhaktapur. You will witness the architectural brilliance of Malla-era palaces, the spiritual energy of the Pashupatinath temple complex, and the serene eyes of the Buddha at the massive Boudhanath Stupa. This tour is perfect for photography enthusiasts and history buffs looking to decode the intricate woodcarvings and stone sculptures that define Newari craftsmanship.",
     itinerary: [
-      { day: "01", title: "Morning meditation, circumambulation (Kora) of the stupa, visiting local monasteries, and sunset views from a rooftop cafe." }
+      { day: "01", title: "Arrival in Kathmandu, traditional welcome dinner, and trip briefing." },
+      { day: "02", title: "Full day tour: Kathmandu Durbar Square, Swayambhunath (Monkey Temple), and Patan." },
+      { day: "03", title: "Sunrise at Nagarkot, visit Bhaktapur Durbar Square and Boudhanath Stupa." },
+      { day: "04", title: "Morning visit to Pashupatinath and final departure transfer." }
     ],
-    includes: ["Entry Fees", "Certified Cultural Guide", "Traditional Lunch", "Local Taxes"],
-    excludes: ["Personal Tips", "Extra Beverages", "Souvenir Shopping"]
+    includes: ["3-Star Hotel", "Certified Heritage Guide", "Private AC Transport", "Breakfast"],
+    excludes: ["International Airfare", "Lunch/Dinner", "Entrance Fees"]
   },
   {
     id: 2,
-    slug: "annapurna-base-camp",
+    slug: "annapurna-panorama-trek",
     imgSrc: img2,
-    destTitle: "Annapurna Base Camp",
-    location: "Pokhara",
-    grade: "TREKKING ADVENTURE",
-    fees: "$500",
-    duration: "11 Days",
-    tagline: "Himalayan Sanctuary",
-    description: "The Annapurna Base Camp (ABC) trek is a legendary journey into the heart of the Himalayas. You will traverse through varied ecosystems, from lush rhododendron forests and terraced farmlands to the stark, majestic high-altitude sanctuary surrounded by 7,000-meter peaks. This trek offers a unique opportunity to experience the hospitality of Gurung villages and witness the sunrise over the Annapurna massif, creating a golden glow that stays in your memory forever.",
+    destTitle: "Annapurna Panorama",
+    location: "Annapurna Region",
+    grade: "EASY-PACED TREKKING",
+    fees: "$630",
+    duration: "12 Days",
+    tagline: "The Gurung Village Experience",
+    description: "The Annapurna Panorama trek is a masterpiece of Himalayan trekking, offering maximum visual reward with moderate physical effort. This 12-day odyssey winds through ancient rhododendron forests that bloom in vibrant pinks and reds during spring. You'll stay in traditional stone-built teahouses in Gurung villages like Ghandruk, where the local hospitality is as warm as the mountain sun. The ultimate highlight is standing atop Poon Hill at dawn, watching the sun ignite the peaks of Dhaulagiri and Annapurna in a spectacular display of gold and orange.",
     itinerary: [
-      { day: "01", title: "Drive from Pokhara to Nayapul and trek to Tikhedhunga (1,540m)." },
-      { day: "02", title: "Challenge the 3,000 stone steps of Ulleri and trek to Ghorepani (2,860m)." },
-      { day: "03", title: "Early morning hike to Poon Hill for sunrise, then trek to Tadapani." },
-      { day: "04", title: "Descend through rhododendron forests to the village of Chhomrong." },
-      { day: "05", title: "Trek through bamboo forests to Dovan (2,600m)." },
-      { day: "06", title: "Ascend towards Deurali, feeling the air thin as peaks come into view." },
-      { day: "07", title: "Reach Machhapuchhre Base Camp and finally the Annapurna Base Camp (4,130m)." },
-      { day: "08", title: "Celebrate the summit views and descend back to Bamboo." },
-      { day: "09", title: "Trek to Jhinu Danda and enjoy the natural riverside hot springs." },
-      { day: "10", title: "Final trek to Nayapul and drive back to the lakeside at Pokhara." },
-      { day: "11", title: "Farewell breakfast and departure." }
+      { day: "01", title: "Arrival in Kathmandu and transfer to hotel." },
+      { day: "02", title: "Full day sightseeing in Kathmandu and trek preparation." },
+      { day: "03", title: "Scenic drive to Pokhara (approx. 6-7 hours)." },
+      { day: "04", title: "Drive to Nayapul and trek to Tikhedhunga (1,540m)." },
+      { day: "05", title: "Uphill trek to the beautiful village of Ghorepani (2,860m)." },
+      { day: "06", title: "Early morning hike to Poon Hill (3,210m) for sunrise; trek to Tadapani." },
+      { day: "07", title: "Trek to Ghandruk village, a traditional Gurung settlement." },
+      { day: "08", title: "Trek back to Nayapul and drive to Pokhara." },
+      { day: "09", title: "Free day in Pokhara for lakeside relaxation or boating." },
+      { day: "10", title: "Drive back to Kathmandu via scenic highway." },
+      { day: "11", title: "Shopping day and farewell dinner in Kathmandu." },
+      { day: "12", title: "Final departure." }
     ],
-    includes: ["ACAP & TIMS Permits", "Professional Trekking Guide", "Porters", "All Meals & Teahouse Stays"],
-    excludes: ["Hot Showers", "Charging Electronic Devices", "Alcoholic Beverages"]
+    includes: ["Trekking Permits (TIMS/ACAP)", "Teahouse Accommodation", "Guide & Porters", "All Meals on Trek"],
+    excludes: ["Sleeping Bags", "Personal Insurance", "Bar Bills"]
   },
   {
     id: 3,
-    slug: "lumbini-birthplace",
+    slug: "lumbini-pilgrimage",
     imgSrc: img3,
-    destTitle: "Lumbini",
-    location: "Rupandehi",
-    grade: "SPIRITUAL JOURNEY",
-    fees: "$80",
-    duration: "2 Days",
-    tagline: "Peace Starts Here",
-    description: "Lumbini is not just a destination; it is a profound spiritual experience. As the birthplace of Siddhartha Gautama (Lord Buddha), it holds an energy of serenity and historical weight. The Sacred Garden contains the Mayadevi Temple, the exact spot of birth, alongside the Ashoka Pillar. You can explore the Monastic Zone, where different nations have built stunning monasteries reflecting their own architectural heritage, all connected by a peaceful canal.",
+    destTitle: "Lumbini Buddhist Circuit",
+    location: "Lumbini",
+    grade: "PILGRIMAGE & SPIRITUAL",
+    fees: "$650",
+    duration: "5 Days",
+    tagline: "Birthplace of Lord Buddha",
+    description: "Step into the cradle of Buddhism with our Lumbini Buddhist Circuit. This spiritual retreat is centered around the Maya Devi Temple, the exact spot where Queen Maya Devi gave birth to Siddhartha Gautama. Beyond the sacred garden, you will explore the Monastic Zone, where different nations have built stunning monasteries reflecting their unique architectural styles—from the gilded Thai temple to the minimalist German stupa. It is a journey of peace, meditation, and historical discovery that resonates with seekers of all backgrounds.",
     itinerary: [
-      { day: "01", title: "Arrival, Rickshaw tour of the Monastic Zone (World Peace Pagoda, German and Thai Monasteries)." },
-      { day: "02", title: "Early morning visit to Mayadevi Temple and meditation in the Sacred Garden before departure." }
+      { day: "01", title: "Flight from Kathmandu to Bhairahawa and transfer to Lumbini." },
+      { day: "02", title: "Exploration of the Sacred Garden, Maya Devi Temple, and Ashoka Pillar." },
+      { day: "03", title: "Guided tour of the International Monastic Zone (East and West zones)." },
+      { day: "04", title: "Day trip to Tilaurakot (ancient Kapilvastu) to see the Shakya Palace ruins." },
+      { day: "05", title: "Morning meditation session and flight back to Kathmandu." }
     ],
-    includes: ["Heritage Site Entry", "Private AC Transport", "Heritage Guide", "Mineral Water"],
-    excludes: ["Meals", "Donations at Monasteries"]
+    includes: ["Round-trip Domestic Flights", "Deluxe Hotel", "Spiritual Guide", "Meditation Sessions"],
+    excludes: ["Personal Donations", "Laundry", "Tips"]
   },
   {
     id: 4,
@@ -77,97 +84,97 @@ const Data = [
     imgSrc: img4,
     destTitle: "Sarangkot Paragliding",
     location: "Pokhara",
-    grade: "PARAGLIDING EXPERIENCE",
+    grade: "ADVENTURE",
     fees: "$120",
     duration: "1 Day",
-    tagline: "Fly with the Eagles",
-    description: "Take to the skies from the hilltop of Sarangkot for an adrenaline-fueled experience. As you glide through the air, you are treated to an unparalleled 360-degree view of the Pokhara Valley, the deep blue Phewa Lake, and the towering white peaks of Mt. Fishtail (Machhapuchhre) and the Annapurna range. It is a peaceful yet exhilarating dance with the wind that defines the spirit of adventure in Nepal.",
+    tagline: "Fly with Eagles",
+    description: "Experience the ultimate adrenaline rush as you soar high above the clouds in Pokhara. Your journey begins with a scenic drive to the Sarangkot hilltop, a premier take-off point known for its consistent thermals. As you launch into the air with a certified pilot, the entire Annapurna range, including the fishtail peak of Machhapuchhre, unfolds before your eyes. Floating over the emerald waters of Phewa Lake while eagles circle nearby is a core memory you'll cherish forever. The flight concludes with a gentle landing on the lakeside.",
     itinerary: [
-      { day: "01", title: "Drive to Sarangkot takeoff point, safety briefing, 30-45 minute flight, and landing by the lakeside." }
+      { day: "01", title: "Pick up from hotel, 30-min flight from Sarangkot, and lakeside drop-off." }
     ],
-    includes: ["Pick-up/Drop", "Certified Pilot", "HD Video and Photos", "Flight Insurance"],
-    excludes: ["Personal Snacks", "Extended Flight Time"]
+    includes: ["Hotel Pickup/Drop", "Certified Pilot", "Photo/Video Package", "Safety Equipment"],
+    excludes: ["Meals", "Travel Insurance"]
   },
   {
     id: 5,
     slug: "pokhara-highway-drive",
     imgSrc: img5,
-    destTitle: "Pokhara Highway Drive",
+    destTitle: "Scenic Highway Drive",
     location: "Kathmandu to Pokhara",
-    grade: "SCENIC ROAD TRIP",
+    grade: "ROAD TRIP",
     fees: "$60",
     duration: "1 Day",
     tagline: "Riverside Journey",
-    description: "The journey between Nepal's two largest cities is a scenic masterpiece. Traveling along the Prithvi Highway, you'll follow the winding path of the Trishuli River, famous for white-water rafting. The drive offers glimpses of terraced hillsides, rural roadside markets selling fresh local produce, and suspension bridges connecting remote villages to the main road. It is the perfect way to see the 'real' Nepal beyond the city centers.",
+    description: "The Prithvi Highway journey is more than just a commute; it is a scenic window into rural Nepal. As you leave the bustling capital, the road snakes alongside the white-water Trishuli River, a favorite for rafters. You will pass through terraced hillsides, vibrant roadside markets selling fresh local fruits, and small villages that offer a glimpse into the daily life of the Nepali middle-hills. The 200km drive offers multiple stops at local 'Bhattis' (eateries) where you can taste authentic Dal Bhat while enjoying the mountain breeze.",
     itinerary: [
-      { day: "01", title: "Morning departure from Kathmandu, riverside lunch stop at Malekhu, and arrival in Pokhara by late afternoon." }
+      { day: "01", title: "7-hour scenic drive from Kathmandu to Pokhara with lunch stops at riverside resorts." }
     ],
-    includes: ["Private AC Vehicle", "Experienced Driver", "Fuel and Parking", "Road Tolls"],
-    excludes: ["Lunch and Snacks", "Tips for Driver"]
+    includes: ["Private AC Vehicle", "Experienced Driver", "Fuel and Tolls"],
+    excludes: ["Meals", "Entrance Fees to en-route attractions"]
   },
   {
     id: 6,
-    slug: "pashupatinath-temple",
+    slug: "pashupatinath-temple-tour",
     imgSrc: img6,
-    destTitle: "Pashupatinath Temple",
+    destTitle: "Pashupatinath Spiritual Tour",
     location: "Kathmandu",
-    grade: "RELIGIOUS SITE",
+    grade: "RELIGIOUS",
     fees: "$40",
     duration: "1 Day",
     tagline: "Sacred Shiva Abode",
-    description: "Pashupatinath is the most sacred Hindu temple dedicated to Lord Shiva in the world. Located on the banks of the Bagmati River, this sprawling complex is a mix of temples, ashrams, and images that have stood for centuries. It is a place where life and death meet openly; visitors can witness traditional cremation rituals on the ghats, interact with Sadhus (holy men), and experience the powerful evening Aarati ceremony filled with oil lamps and music.",
+    description: "Pashupatinath is not just a temple; it is the center of the Hindu universe in Nepal. Dedicated to Lord Shiva in his form as Pashupati (Lord of Animals), this UNESCO site is a sprawling complex of shrines, ashrams, and ghats. You will witness the cycle of life and death along the Bagmati River, see the colorful Sadhus (holy men) with their ash-smeared bodies, and experience the powerful evening 'Aarati' ceremony where priests perform rhythmic fire rituals. It is a profound, sensory, and deeply spiritual experience that captures the essence of Nepalese faith.",
     itinerary: [
-      { day: "01", title: "Exploration of the temple complex, meeting the Sadhus, and attending the evening Bagmati Aarati ceremony." }
+      { day: "01", title: "Morning ritual observation, exploration of the 492 shrines, and evening Aarati." }
     ],
-    includes: ["Entry Permit", "Government Licensed Guide", "Evening Aarati Experience"],
-    excludes: ["Personal Offerings", "Photography Fees in Restricted Areas"]
+    includes: ["Certified Religious Guide", "Entrance Tickets", "Transportation"],
+    excludes: ["Food/Drinks", "Personal Offerings"]
   },
   {
     id: 7,
-    slug: "everest-base-camp-trek",
+    slug: "everest-base-camp-classic",
     imgSrc: img7,
     destTitle: "Everest Base Camp Trek",
     location: "Solukhumbu",
-    grade: "EXTREME TREKKING",
-    fees: "$1200",
+    grade: "TREKKING ADVENTURE",
+    fees: "$1420",
     duration: "14 Days",
-    tagline: "Top of the World",
-    description: "The journey to Everest Base Camp is the ultimate pilgrimage for trekkers. Following in the footsteps of legends like Hillary and Tenzing, you will fly into the world's most dangerous airport at Lukla and begin your ascent through the Khumbu region. Expect to encounter ancient monasteries, high-altitude suspension bridges, and the resilient Sherpa culture, all set against the backdrop of the highest peaks on Earth, including Lhotse, Nuptse, and the mighty Everest.",
+    tagline: "Footsteps of Legends",
+    description: "The Everest Base Camp trek is the 'Holy Grail' of trekking adventures. This 14-day expedition takes you deep into the heart of Sherpa culture, through the high-altitude landscapes of the Sagarmatha National Park. You will cross suspension bridges draped in prayer flags, climb the famous Namche Hill, and stand in awe before the Khumbu Icefall. Every step is a challenge and a triumph, leading you to the base of the highest peak on Earth. From the spiritual silence of Tengboche Monastery to the breathtaking views from Kala Patthar, this trek is a life-changing experience for every adventurer.",
     itinerary: [
-      { day: "01", title: "Thrilling flight to Lukla and trek to Phakding (2,610m)." },
-      { day: "02", title: "Crossing the Hillary Bridge to reach the Sherpa capital, Namche Bazaar (3,440m)." },
-      { day: "03", title: "Acclimatization day in Namche; hike to Everest View Hotel for the first glimpse of Everest." },
-      { day: "04", title: "Trek to Tengboche and visit the famous monastery during morning prayers." },
-      { day: "05", title: "Trek to Dingboche (4,410m) through alpine landscapes and summer pastures." },
-      { day: "06", title: "Rest and acclimatization in Dingboche; optional hike to Nagarjun Hill." },
-      { day: "07", title: "Trek to Lobuche, passing the emotional climber's memorial at Thukla Pass." },
-      { day: "08", title: "The big day: Reach Everest Base Camp (5,364m) and return to Gorak Shep." },
-      { day: "09", title: "Sunrise climb to Kala Patthar (5,550m) for the best panoramic view of Everest." },
-      { day: "10", title: "Descend to Pheriche village." },
-      { day: "11", title: "Trek back to Namche Bazaar for a well-deserved celebration." },
-      { day: "12", title: "Final descent to Lukla." },
-      { day: "13", title: "Morning flight back to Kathmandu." },
-      { day: "14", title: "Buffer day/Departure." }
+      { day: "01", title: "Arrival in Kathmandu and briefing." },
+      { day: "02", title: "Fly to Lukla and trek to Phakding (2,610m)." },
+      { day: "03", title: "Trek to the Sherpa capital, Namche Bazaar (3,440m)." },
+      { day: "04", title: "Acclimatization day: Hike to Everest View Hotel." },
+      { day: "05", title: "Trek to Tengboche; visit the famous monastery (3,860m)." },
+      { day: "06", title: "Trek to Dingboche (4,410m) through summer pastures." },
+      { day: "07", title: "Second Acclimatization day in Dingboche." },
+      { day: "08", title: "Trek to Lobuche (4,940m) along the Khumbu Glacier." },
+      { day: "09", title: "Trek to Everest Base Camp (5,364m) and back to Gorakshep." },
+      { day: "10", title: "Hike to Kala Patthar (5,545m) for sunrise and trek to Pheriche." },
+      { day: "11", title: "Trek back down to Namche Bazaar." },
+      { day: "12", title: "Trek back to Lukla; farewell with the crew." },
+      { day: "13", title: "Fly back to Kathmandu; evening leisure." },
+      { day: "14", title: "Final Departure." }
     ],
-    includes: ["Domestic Flights (KTM-Lukla)", "Sagarmatha NP Permits", "Expert Guide & Porters", "Medical Kit"],
-    excludes: ["Emergency Evacuation Insurance", "Oxygen Cylinders", "Battery Charging Fees"]
+    includes: ["Lukla Flights", "Sagarmatha Permits", "Teahouse Lodging", "Full Trekking Crew"],
+    excludes: ["Hot Showers/Battery Charging", "Oxygen", "WIFI"]
   },
   {
     id: 8,
     slug: "cliff-kushma-swing",
     imgSrc: img8,
-    destTitle: "The Cliff Kushma Swing",
+    destTitle: "Kushma Canyon Swing",
     location: "Kushma",
-    grade: "ADVENTURE SWING",
+    grade: "EXTREME ADVENTURE",
     fees: "$90",
     duration: "1 Day",
-    tagline: "The World's Highest",
-    description: "Located above the Kaligandaki River, 'The Cliff' in Kushma is home to the world’s highest canyon swing. For thrill-seekers, this is the ultimate test of courage. You’ll experience a terrifying yet beautiful free-fall from a 228-meter high bridge before swinging through the gorge. The site also features a resort where you can relax and watch others take the plunge amidst the stunning backdrop of the Baglung and Parbat districts.",
+    tagline: "World's Highest",
+    description: "Are you brave enough to take the leap? The Kushma Canyon Swing is currently the world’s highest canyon swing, towering at a staggering 228 meters over the wild Kaligandaki River. Unlike a bungee jump, the swing offers a massive 12-second free fall followed by a high-speed arc through the canyon. Suspended from a 520-meter long bridge, you’ll experience a rush of gravity and wind that is unmatched. The view of the deep gorge and the Annapurna mountains in the distance only adds to the epic nature of this extreme experience.",
     itinerary: [
-      { day: "01", title: "Early morning transfer to Kushma, safety orientation, the jump/swing session, and riverside relaxation." }
+      { day: "01", title: "Drive from Pokhara to Kushma, safety briefing, the Big Swing, and return." }
     ],
-    includes: ["Swing/Jump Ticket", "Photos & Video", "Safety Briefing", "Equipment Rental"],
-    excludes: ["Personal Transportation", "Lunch", "Additional Jumps"]
+    includes: ["Swing Ticket", "Safety Briefing", "Transport from Pokhara", "Equipment"],
+    excludes: ["Photos/Videos", "Lunch"]
   },
   {
     id: 9,
@@ -175,16 +182,52 @@ const Data = [
     imgSrc: img9,
     destTitle: "Phewa Lake Boating",
     location: "Pokhara",
-    grade: "BOATING & RELAX",
+    grade: "RELAXATION",
     fees: "$30",
     duration: "1 Day",
-    tagline: "Reflection of Machhapuchhre",
-    description: "Phewa Lake is the crown jewel of Pokhara. A peaceful boat ride on its calm waters offers the most iconic view in Nepal: the twin peaks of Mt. Machhapuchhre reflecting perfectly on the lake's surface. In the middle of the lake sits the Tal Barahi Temple, a two-story pagoda dedicated to the protector deity. Whether you choose to row yourself or be rowed, the experience is a necessary escape from the bustle of city life.",
+    tagline: "Reflection of Peaks",
+    description: "Find serenity on the calm, mirror-like waters of Phewa Lake, the second-largest lake in Nepal. Rent a brightly colored 'Doonga' (wooden boat) and row out to the center, where the iconic Machhapuchhre (Fishtail) mountain is perfectly reflected in the water. You can stop at the Tal Barahi Temple, a beautiful two-story pagoda located on an island in the middle of the lake. Whether you choose to row yourself or hire a boatman, the gentle lap of the water and the cool mountain air make this the perfect antidote to the chaos of city life.",
     itinerary: [
-      { day: "01", title: "Hire a colorful 'Doonga', row to the Tal Barahi island temple, and enjoy the sunset from the middle of the lake." }
+      { day: "01", title: "Morning or sunset boating session with a visit to the Island Temple." }
     ],
-    includes: ["Boat Rental (1-2 Hours)", "Life Jacket", "Rowing Service", "Local Guide"],
-    excludes: ["Temple Offerings", "Lakeside Snacks"]
+    includes: ["Boat Rental", "Life Jackets", "Guide"],
+    excludes: ["Temple Offerings", "Snacks"]
+  },
+  {
+    id: 10,
+    slug: "chitwan-jungle-safari",
+    imgSrc: img6, 
+    destTitle: "Chitwan Wildlife Safari",
+    location: "Chitwan National Park",
+    grade: "WILDLIFE ADVENTURE",
+    fees: "$200",
+    duration: "3 Days",
+    tagline: "Into the Wild",
+    description: "Swap the mountain peaks for the subtropical jungles of the Terai. Chitwan National Park, a UNESCO World Heritage site, is one of the best wildlife-viewing destinations in Asia. In these dense forests and grasslands, you will track the Greater One-horned Rhinoceros and keep a silent watch for the elusive Royal Bengal Tiger. From peaceful canoe rides where crocodiles bask on the banks to thrilling jeep safaris and cultural encounters with the indigenous Tharu people, Chitwan offers a complete natural and cultural immersion in the wild heart of Nepal.",
+    itinerary: [
+      { day: "01", title: "Arrival, Tharu village walk, and traditional dance performance." },
+      { day: "02", title: "Full day of Safari: Jeep drive, Canoe ride, and Elephant breeding center visit." },
+      { day: "03", title: "Early morning bird watching and departure to Kathmandu/Pokhara." }
+    ],
+    includes: ["Resort Accommodation", "Full Board Meals", "Park Entrance Fees", "Naturalist Guide"],
+    excludes: ["Alcohol", "Tips"]
+  },
+  {
+    id: 11,
+    slug: "everest-mountain-flight",
+    imgSrc: img9,
+    destTitle: "Everest Mountain Flight",
+    location: "Kathmandu Airport",
+    grade: "SCENIC LUXURY",
+    fees: "$236",
+    duration: "1 Day",
+    tagline: "Close-up with Giants",
+    description: "The Everest Mountain Flight is the ultimate luxury for those who want to see the world's highest peaks without the physical exertion of trekking. Taking off from Kathmandu, this one-hour flight takes you within miles of the Tibetan border. Every passenger is guaranteed a window seat to witness a panorama of 20 of the highest peaks in the world, including Lhotse, Makalu, and, of course, the mighty Everest. As the pilot identifies each peak for you, you'll feel like you could reach out and touch the snow-capped summits. It’s an awe-inspiring experience that defines 'once-in-a-lifetime'.",
+    itinerary: [
+      { day: "01", title: "Early morning airport transfer, 1-hour flight, and certificate presentation." }
+    ],
+    includes: ["Airport Transfers", "Guaranteed Window Seat", "Flight Map/Certificate"],
+    excludes: ["Personal Expenses"]
   }
 ];
 

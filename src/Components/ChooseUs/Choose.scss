@@ -1,0 +1,202 @@
+/* --- Variables & Core Settings --- */
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
+  --whiteColor: #ffffff;
+  --greyText: #9ca3af;
+  --bodyColor: #f8fafb;
+}
+
+/* --- Component Base Styles --- */
+.why-choose-us {
+  padding: 8rem 0;
+  background: var(--bodyColor);
+  overflow: hidden;
+
+  /* Layout Container */
+  .main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* Left Side: Content & Branding */
+  .content-side {
+    .subtitle {
+      color: var(--secondary-color);
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 3rem;
+      color: var(--blackColor);
+      line-height: 1.2;
+      margin: 1.5rem 0;
+      font-weight: 800;
+      span { color: var(--primary-color); }
+    }
+
+    p {
+      color: var(--textColor);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center; // Vertical alignment for desktop
+      gap: 1.5rem;
+      background: var(--whiteColor);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      width: fit-content;
+
+      .badge-icon {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        flex-shrink: 0; // Prevents icon from squishing
+      }
+
+      .badge-text {
+        strong { display: block; color: var(--blackColor); font-size: 1rem; margin-bottom: 2px; }
+        p { margin: 0; font-size: 0.9rem; color: var(--greyText); line-height: 1.2; }
+      }
+    }
+  }
+
+  /* Right Side: Feature Cards */
+  .features-side {
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+
+      .feature-card {
+        background: var(--whiteColor);
+        padding: 2.5rem 2rem;
+        border-radius: 2rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+
+        .icon-box {
+          width: 60px;
+          height: 60px;
+          background: rgba(16, 181, 203, 0.1);
+          color: var(--primary-color);
+          border-radius: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2.2rem;
+          margin-bottom: 1.5rem;
+          transition: 0.3s;
+        }
+
+        h4 {
+          font-size: 1.3rem;
+          color: var(--blackColor);
+          margin-bottom: 1rem;
+          font-weight: 700;
+        }
+
+        p {
+          font-size: 0.95rem;
+          color: var(--textColor);
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+          border-color: var(--secondary-color);
+
+          .icon-box {
+            background: var(--primary-color);
+            color: var(--whiteColor);
+            transform: rotate(10deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* --- Media Queries --- */
+
+@media screen and (max-width: 1024px) {
+  .why-choose-us {
+    padding: 5rem 0;
+    .main-layout {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 4rem;
+    }
+    .content-side {
+      .title { font-size: 2.5rem; }
+      p { max-width: 700px; margin-left: auto; margin-right: auto; }
+      .trust-badge { margin: 0 auto; }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .why-choose-us {
+    .features-side {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .why-choose-us {
+    .content-side {
+      .title { font-size: 2.2rem; }
+      
+      /* Vertical alignment fix for trust badge */
+      .trust-badge {
+        flex-direction: column; 
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        max-width: 300px; // Keeps it neat
+
+        .badge-text {
+          strong { font-size: 1.1rem; }
+        }
+      }
+    }
+
+    .features-side {
+      .features-grid {
+        grid-template-columns: 1fr; // Stack cards
+        
+        .feature-card {
+          align-items: center; // Centers icon and text horizontally
+          text-align: center;
+          padding: 2rem;
+
+          .icon-box {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      }
+    }
+  }
+}

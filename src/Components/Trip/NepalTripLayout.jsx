@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MdTimer, MdHotel, MdGroups, MdFlightLand, MdCheck, MdClose, MdLocationOn } from 'react-icons/md';
 import Data from './TripData'; 
-import './NepalTripLayout.scss';
+import './NepalTripLayout.css';
 
 const NepalTripLayout = () => {
   const { slug } = useParams();

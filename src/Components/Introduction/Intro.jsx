@@ -4,7 +4,7 @@ import { AiOutlineSafetyCertificate, AiOutlineHeart } from 'react-icons/ai';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import img from "../../assets/annapurna.jpg"; 
-import './Intro.scss';
+import './Intro.css';
 
 const Intro = () => {
     useEffect(() => {
@@ -16,7 +16,6 @@ const Intro = () => {
             <div className="container">
                 <div className="intro-wrapper">
                     
-                    {/* Left Side: Visual Experience */}
                     <div className="visual-block" data-aos="fade-right">
                         <div className="image-container">
                             <img src={img} alt="Annapurna Mountain" className="main-img" />

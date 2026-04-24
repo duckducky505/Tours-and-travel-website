@@ -1,3 +1,4 @@
+/* --- Variables & Root --- */
 :root {
   --primary-color: #0073a8;
   --secondary-color: #10b5cb;
@@ -6,6 +7,7 @@
   --blackColor: #1b2d36;
   --textColor: #58585f;
   --bodyColor: #f4f7f9;
+  --whiteColorDream: #eef2f5;
   --cardShadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
@@ -50,6 +52,7 @@
   }
 
   .secContent {
+    display: grid;
     gap: 2rem;
 
     .singleDestination {
@@ -60,19 +63,14 @@
       box-shadow: var(--cardShadow);
       display: flex;
       flex-direction: column;
+      height: 100%; 
 
       &:hover {
         transform: translateY(-10px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 
-        .imageDiv img {
-          transform: scale(1.1);
-        }
-        
-        .detailsBtn {
-          background: var(--blackColor);
-          color: white;
-        }
+        .imageDiv img { transform: scale(1.1); }
+        .detailsBtn { background: var(--blackColor); color: white; }
       }
 
       .imageDiv {
@@ -121,41 +119,57 @@
 
       .cardInfo {
         padding: 1.5rem;
-        flex-grow: 1;
         display: flex;
         flex-direction: column;
+        flex: 1; 
 
         .destHeader {
           margin-bottom: 1rem;
+          min-height: 64px; 
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
 
           .destTitle {
             font-size: 1.4rem;
             color: var(--blackColor);
             margin-bottom: 5px;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
           }
 
           .location {
+            display: flex;
+            align-items: center;
             gap: 5px;
             color: var(--textColor);
             font-size: 13px;
-            .icon { color: var(--secondary-color); }
+            .icon { color: var(--secondary-color); font-size: 16px; }
           }
         }
 
-        .desc p {
-          color: var(--textColor);
-          font-size: 14px;
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
+        .desc {
+          flex: 1; 
+          p {
+            color: var(--textColor);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
         }
 
         .detailsBtn {
-          margin-top: auto;
+          margin-top: auto; 
           width: 100%;
+          display: flex;
+          align-items: center;
           justify-content: center;
           gap: 5px;
           background: var(--whiteColorDream);
@@ -166,55 +180,56 @@
           transition: 0.3s;
           text-decoration: none;
 
-          .icon { 
-            font-size: 20px;
-          }
+          .icon { font-size: 20px; }
         }
       }
     }
   }
 }
 
+/* --- Media Queries --- */
+
+@media screen and (max-width: 1024px) {
+  .main .secContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media screen and (max-width: 768px) {
-  .main .secHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    .btnDiv { 
-      display: none;
+  .main {
+    .secHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      .btnDiv { display: none; }
+    }
+    .secContent {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
 
-@media screen and (min-width: 500px) {
-  .secContent { grid-template-columns: repeat(2, 1fr);
-  
-    .cardInfo{
-      .destHeader{
-        align-items: center;
-        text-align: left;
-        .location{
-          justify-content: left;
-        }
+@media screen and (max-width: 600px) {
+  .main {
+    .secContent {
+      grid-template-columns: 1fr; 
+      
+      .singleDestination .cardInfo .destHeader {
+        min-height: 55px; 
+        .destTitle { font-size: 1.2rem; }
       }
     }
   }
 }
 
 @media screen and (min-width: 940px) {
-  .secContent { 
-    grid-template-columns: repeat(3, 1fr); 
+  .main .secContent {
+    grid-template-columns: repeat(3, 1fr);
 
-    .cardInfo{
-      .destHeader{
-        align-items: center;
-        text-align: center;
-        .destTitle{
-          font-size: 1.2em;
-        }
-        .location{
-          justify-content: center;
-        }
-      }
+    .cardInfo .destHeader {
+      align-items: flex-start; 
+      text-align: left;
+      
+      .location { justify-content: flex-start; }
     }
   }
 }

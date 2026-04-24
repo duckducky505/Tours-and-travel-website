@@ -1,31 +1,42 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import useNavigate
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Data from '../Trip/TripData';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { BsArrowRightShort } from 'react-icons/bs'; 
-import './main.scss';
+import './main.css';
 
 const Main = () => {
+    const navigate = useNavigate(); // Initialize navigation
+
     useEffect(() => {
         Aos.init({ duration: 1200, once: true });
     }, []);
+
+    const featuredPackages = Data.slice(0, 6);
 
     return (
         <section className="main container section">
             <div className="secHeader">
                 <div data-aos="fade-right" className="textDiv">
                     <span className="spanText">EXPLORE NEPAL</span>
-                    <h3 className="title">Most Visited Destinations</h3>
+                    <h3 className="title">Featured Packages</h3> {/* Changed title */}
                 </div>
+
                 <div data-aos="fade-left" className="btnDiv">
-                    <button className="viewAllBtn">View All Packages</button>
+                    {/* Navigate to your full packages route */}
+                    <button 
+                        className="viewAllBtn" 
+                        onClick={() => navigate('/packages')}
+                    >
+                        View All Packages
+                    </button>
                 </div>
             </div>
 
             <div className="secContent grid">
-                {Data.map(({ id, imgSrc, destTitle, location, grade, fees, description, slug }) => {
+                {featuredPackages.map(({ id, imgSrc, destTitle, location, grade, fees, description, slug }) => {
                     return (
                         <div key={id} data-aos="fade-up" className="singleDestination">
                             <div className="imageDiv">

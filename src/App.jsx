@@ -11,6 +11,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import AboutPage from './Pages/About/AboutPage'
 import MeetTeam from './Pages/MeetTeam/MeetTeam'
+import Packages from './Pages/Packages/Packages'
+import TailorMade from './Pages/Tailor/TailorPage'
 
 function App() {
 
@@ -22,8 +24,10 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage/>}/>
           <Route path='/home' element={<HomePage/>}/>
+          <Route path='/packages' element={<Packages/>}/>
           <Route path='/about-us' element={<AboutPage/>}/>
           <Route path='/team-members' element={<MeetTeam/>}/>
+          <Route path='/tailor-mode' element={<TailorMade/>}/>
           <Route path="/trip/:slug" element={<NepalTripLayout data={tripData} />} />
         </Routes>
         <Footer/>

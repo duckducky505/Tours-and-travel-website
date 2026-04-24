@@ -91,7 +91,7 @@
 
     .price-item {
       border: none;
-      justify-content: flex-end;
+      justify-content: center;
       gap: 25px;
 
       .price-text {
@@ -113,7 +113,6 @@
     }
   }
 
-  /* Tab Nav */
   .tab-nav {
     display: flex;
     justify-content: center;
@@ -138,7 +137,6 @@
     }
   }
 
-  /* Main Card */
   .main-content-card {
     background: var(--whiteColor);
     padding: 3.5rem;
@@ -150,7 +148,6 @@
       .description-text { line-height: 2; font-size: 1.15rem; color: var(--textColor); }
     }
 
-    /* Timeline */
     .timeline {
       .timeline-item {
         display: flex;

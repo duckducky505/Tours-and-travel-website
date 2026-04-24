@@ -1,0 +1,302 @@
+/* VARIABLES & ROOT */
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: #ffffff;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
+  --bodyColor: rgb(240, 240, 246);
+  --inputColor: #f0f4f8;
+  --greyText: rgb(190, 190, 190);
+}
+
+.tailorBuilder .builderWrapper {
+  grid-template-columns: 320px 1fr;
+  background: var(--whiteColor);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  min-height: 650px;
+}
+.tailorBuilder {
+  /* SIDEBAR SECTION */
+}
+.tailorBuilder .builderSidebar {
+  background: var(--blackColor);
+  padding: 3.5rem 2rem;
+  color: var(--whiteColor);
+}
+.tailorBuilder .builderSidebar .sidebarHeader {
+  margin-bottom: 3.5rem;
+}
+.tailorBuilder .builderSidebar .sidebarHeader .subtitle {
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.tailorBuilder .builderSidebar .sidebarHeader .title {
+  font-size: 1.8rem;
+  margin-top: 8px;
+  line-height: 1.2;
+}
+.tailorBuilder .builderSidebar .stepIndicator {
+  display: grid;
+  gap: 2.5rem;
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0.3;
+  transition: 0.4s ease;
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem.active {
+  opacity: 1;
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem.active .iconCircle {
+  border-color: var(--secondary-color);
+  background: var(--secondary-color);
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem.completed {
+  opacity: 0.8;
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem.completed .iconCircle {
+  background: #2ecc71;
+  border-color: #2ecc71;
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem .iconCircle {
+  height: 45px;
+  width: 45px;
+  border: 2px solid var(--textColor);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem .stepLabel small {
+  font-size: 11px;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+.tailorBuilder .builderSidebar .stepIndicator .stepItem .stepLabel p {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+}
+.tailorBuilder {
+  /* CONTENT AREA SECTION */
+}
+.tailorBuilder .builderContent {
+  padding: 4rem;
+  background: var(--whiteColor);
+}
+.tailorBuilder .builderContent h3 {
+  font-size: 2.2rem;
+  color: var(--blackColor);
+  margin-bottom: 2.5rem;
+  font-weight: 800;
+}
+.tailorBuilder .builderContent .inputRow {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+.tailorBuilder .builderContent .inputRow.dateRow {
+  grid-template-columns: 1fr 1fr;
+}
+.tailorBuilder .builderContent .inputBox {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.tailorBuilder .builderContent .inputBox label {
+  display: block;
+  font-weight: 600;
+  color: var(--blackColor);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.tailorBuilder .builderContent .inputBox input, .tailorBuilder .builderContent .inputBox select, .tailorBuilder .builderContent .inputBox textarea {
+  width: 100%;
+  background: var(--inputColor);
+  border: 2px solid transparent;
+  padding: 15px;
+  border-radius: 12px;
+  outline: none;
+  transition: 0.3s;
+  font-family: inherit;
+}
+.tailorBuilder .builderContent .inputBox input:focus, .tailorBuilder .builderContent .inputBox select:focus, .tailorBuilder .builderContent .inputBox textarea:focus {
+  border-color: var(--primary-color);
+  background: var(--whiteColor);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.tailorBuilder .builderContent .innerInput {
+  background: var(--inputColor);
+  border-radius: 12px;
+  padding-left: 15px;
+  gap: 10px;
+}
+.tailorBuilder .builderContent .innerInput .icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+.tailorBuilder .builderContent .innerInput input, .tailorBuilder .builderContent .innerInput textarea {
+  background: transparent;
+  border: none;
+  padding-left: 5px;
+}
+.tailorBuilder .builderContent .innerInput.textareaItem {
+  align-items: flex-start;
+}
+.tailorBuilder .builderContent .innerInput.textareaItem .topIcon {
+  margin-top: 15px;
+}
+.tailorBuilder .builderContent {
+  /* Selection Elements */
+}
+.tailorBuilder .builderContent .chipGroup {
+  gap: 12px;
+}
+.tailorBuilder .builderContent .chipGroup .chip {
+  cursor: pointer;
+}
+.tailorBuilder .builderContent .chipGroup .chip input {
+  display: none;
+}
+.tailorBuilder .builderContent .chipGroup .chip span {
+  padding: 12px 25px;
+  background: var(--inputColor);
+  border-radius: 50px;
+  font-weight: 600;
+  color: var(--textColor);
+  transition: 0.3s;
+}
+.tailorBuilder .builderContent .chipGroup .chip input:checked + span {
+  background: var(--primary-color);
+  color: var(--whiteColor);
+}
+.tailorBuilder .builderContent .starGroup {
+  gap: 15px;
+}
+.tailorBuilder .builderContent .starGroup .starCard {
+  flex: 1;
+  cursor: pointer;
+}
+.tailorBuilder .builderContent .starGroup .starCard input {
+  display: none;
+}
+.tailorBuilder .builderContent .starGroup .starCard .cardContent {
+  padding: 1.5rem;
+  background: var(--inputColor);
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+.tailorBuilder .builderContent .starGroup .starCard .cardContent span {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--blackColor);
+  display: block;
+}
+.tailorBuilder .builderContent .starGroup .starCard .cardContent p {
+  font-size: 11px;
+  margin-top: 4px;
+  color: var(--textColor);
+}
+.tailorBuilder .builderContent .starGroup .starCard input:checked + .cardContent {
+  border-color: var(--primary-color);
+  background: var(--whiteColor);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+.tailorBuilder .builderContent {
+  /* Footer Buttons */
+}
+.tailorBuilder .builderContent .builderFooter {
+  margin-top: 3.5rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--inputColor);
+  padding-top: 2rem;
+}
+.tailorBuilder .builderContent .builderFooter .backBtn {
+  background: none;
+  border: none;
+  font-weight: 700;
+  color: var(--textColor);
+  cursor: pointer;
+  gap: 5px;
+  font-size: 1rem;
+}
+.tailorBuilder .builderContent .builderFooter .backBtn:hover {
+  color: var(--blackColor);
+}
+.tailorBuilder .builderContent .builderFooter .nextBtn, .tailorBuilder .builderContent .builderFooter .submitBtn {
+  border: none;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* =========================================
+   MEDIA QUERIES (END OF FILE)
+   ========================================= */
+@media screen and (max-width: 1024px) {
+  .tailorBuilder .builderWrapper {
+    grid-template-columns: 280px 1fr;
+  }
+}
+@media screen and (max-width: 992px) {
+  .tailorBuilder .builderWrapper {
+    grid-template-columns: 1fr;
+    border-radius: 1rem;
+  }
+  .tailorBuilder .builderWrapper .builderSidebar {
+    padding: 2rem;
+  }
+  .tailorBuilder .builderWrapper .builderSidebar .stepIndicator {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .tailorBuilder .builderWrapper .builderSidebar .stepIndicator .stepLabel {
+    display: none;
+  }
+  .tailorBuilder .builderWrapper .builderSidebar .stepIndicator .stepItem {
+    justify-content: center;
+    opacity: 1;
+  }
+  .tailorBuilder .builderWrapper .builderContent {
+    padding: 2.5rem 1.5rem;
+  }
+  .tailorBuilder .builderWrapper .builderContent h3 {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tailorBuilder .builderContent .inputRow {
+    grid-template-columns: 1fr !important;
+  }
+  .tailorBuilder .builderContent .chipGroup {
+    flex-direction: column;
+  }
+  .tailorBuilder .builderContent .chipGroup .chip span {
+    text-align: center;
+  }
+  .tailorBuilder .builderContent .starGroup {
+    flex-direction: column;
+  }
+  .tailorBuilder .builderContent .builderFooter {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+  .tailorBuilder .builderContent .builderFooter .nextBtn, .tailorBuilder .builderContent .builderFooter .submitBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=TailorPage.css.map */
