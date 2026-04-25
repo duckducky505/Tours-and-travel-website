@@ -51,9 +51,9 @@ const Choose = () => {
               story is told with safety, authenticity, and respect for the local culture.
             </p>
             
-            <div className="trust-badge grid">
+            <div className="trust-badge flex">
               <MdOutlineVerifiedUser className="badge-icon" />
-              <div>
+              <div className='badge-text'>
                 <strong>Government Authorized</strong>
                 <p>Fully licensed by the Nepal Ministry of Tourism.</p>
               </div>
@@ -61,10 +61,10 @@ const Choose = () => {
           </div>
 
           <div className="features-side">
-            <div className="features-grid">
+            <div className="features-grid grid">
               {features.map(({ id, icon, title, desc }) => (
                 <div key={id} className="feature-card" data-aos="zoom-in" data-aos-delay={id * 100}>
-                  <div className="icon-box">{icon}</div>
+                  <div className="icon-box flex">{icon}</div>
                   <h4>{title}</h4>
                   <p>{desc}</p>
                 </div>

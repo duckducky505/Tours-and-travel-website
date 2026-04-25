@@ -1,3 +1,4 @@
+/* VARIABLES */
 :root {
   --primary-color: #0073a8;
   --secondary-color: #10b5cb;
@@ -5,15 +6,16 @@
   --blackColor: #1b2d36;
   --textColor: #58585f;
   --whiteColorDream: #eef2f5;
+  --glassBg: rgba(255, 255, 255, 0.12);
 }
 
-.footer {
+.footerMain {
   width: 100%;
   position: relative;
-  padding: 6rem 0 2rem;
+  padding: 8rem 0 3rem;
   overflow: hidden;
 }
-.footer .videoDiv {
+.footerMain .videoOverlay {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -21,215 +23,248 @@
   left: 0;
   z-index: -1;
 }
-.footer .videoDiv video {
+.footerMain .videoOverlay video {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.footer .videoDiv::after {
+.footerMain .videoOverlay::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), var(--blackColor));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), var(--blackColor) 95%);
 }
-.footer .secContent {
+.footerMain .contentWrapper {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  /* Newsletter Glassmorphism Section */
+  gap: 4rem;
 }
-.footer .secContent .contactDiv {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
+.footerMain .contentWrapper .newsletterBox {
+  background: var(--glassBg);
+  backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 3rem;
-  border-radius: 20px;
+  padding: 3.5rem;
+  border-radius: 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 2rem;
 }
-.footer .secContent .contactDiv .text small {
+.footerMain .contentWrapper .newsletterBox .textSide small {
   color: var(--secondary-color);
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 800;
+  letter-spacing: 3px;
 }
-.footer .secContent .contactDiv .text h2 {
+.footerMain .contentWrapper .newsletterBox .textSide h2 {
   color: var(--whiteColor);
-  font-size: 2.2rem;
-  margin-top: 0.5rem;
+  font-size: 2.4rem;
+  margin-top: 8px;
 }
-.footer .secContent .contactDiv .inputDiv {
+.footerMain .contentWrapper .newsletterBox .quoteActionSide {
   display: flex;
-  gap: 10px;
-  flex: 1;
-  max-width: 500px;
+  align-items: center;
 }
-.footer .secContent .contactDiv .inputDiv input {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid transparent;
-  padding: 15px 20px;
-  border-radius: 12px;
-  color: white;
-  outline: none;
-}
-.footer .secContent .contactDiv .inputDiv input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-.footer .secContent .contactDiv .inputDiv input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-.footer .secContent .contactDiv .inputDiv input:focus {
-  border-color: var(--secondary-color);
-}
-.footer .secContent .contactDiv .inputDiv .btn {
+.footerMain .contentWrapper .newsletterBox .quoteActionSide .quoteBtn {
   background: var(--secondary-color);
   color: white;
-  padding: 0 25px;
-  border-radius: 12px;
+  padding: 1rem 2.5rem;
+  border-radius: 14px;
   border: none;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
   cursor: pointer;
-  transition: 0.3s;
-}
-.footer .secContent .contactDiv .inputDiv .btn:hover {
-  background: var(--primary-color);
-}
-.footer .secContent {
-  /* Main Footer Card */
-}
-.footer .secContent .footerCard {
-  background: var(--whiteColor);
-  border-radius: 25px;
-  padding: 4rem 3rem 0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-.footer .secContent .footerCard .footerGrid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  gap: 2rem;
-  padding-bottom: 4rem;
-}
-.footer .secContent .footerCard .footerGrid .footerIntro .logoDiv .logo {
+  transition: 0.4s;
   display: flex;
   align-items: center;
-  gap: 10px;
-  text-decoration: none;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  min-width: 220px;
+}
+.footerMain .contentWrapper .newsletterBox .quoteActionSide .quoteBtn .icon {
+  font-size: 1.2rem;
+}
+.footerMain .contentWrapper .newsletterBox .quoteActionSide .quoteBtn:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.footerMain .contentWrapper .mainFooterCard {
+  background: var(--whiteColor);
+  border-radius: 30px;
+  padding: 5rem 4rem 0;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+.footerMain .contentWrapper .mainFooterCard .footerGrid {
+  display: grid;
+  /* Force 4 columns on desktop to keep titles in one line */
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  align-items: start;
+  gap: 3rem;
+  padding-bottom: 5rem;
+}
+.footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 2rem;
+  font-weight: 900;
   color: var(--blackColor);
-  font-size: 1.8rem;
-  font-weight: 800;
 }
-.footer .secContent .footerCard .footerGrid .footerIntro .logoDiv .logo .icon {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .logoGroup .logoIcon {
   color: var(--primary-color);
+  font-size: 2.2rem;
 }
-.footer .secContent .footerCard .footerGrid .footerIntro .footerParagraph {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .para {
   margin: 1.5rem 0;
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--textColor);
   font-size: 0.95rem;
 }
-.footer .secContent .footerCard .footerGrid .footerIntro .footerSocials {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .socialIcons {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.2rem;
 }
-.footer .secContent .footerCard .footerGrid .footerIntro .footerSocials .icon {
-  font-size: 1.4rem;
+.footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .socialIcons .s-icon {
+  font-size: 1.5rem;
   color: var(--blackColor);
   transition: 0.3s;
   cursor: pointer;
 }
-.footer .secContent .footerCard .footerGrid .footerIntro .footerSocials .icon:hover {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .socialIcons .s-icon:hover {
   color: var(--primary-color);
+  transform: translateY(-3px);
 }
-.footer .secContent .footerCard .footerGrid .linkGroup .groupTitle {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn .title {
   display: block;
   font-weight: 800;
   color: var(--blackColor);
-  margin-bottom: 1.5rem;
+  /* margin-bottom ensures spacing below the title */
+  margin-bottom: 2rem;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  /* White-space prevents titles from wrapping to next line */
+  white-space: nowrap;
 }
-.footer .secContent .footerCard .footerGrid .linkGroup ul {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn ul {
   list-style: none;
   padding: 0;
 }
-.footer .secContent .footerCard .footerGrid .linkGroup ul li {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn ul li {
   color: var(--textColor);
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: 0.3s;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-.footer .secContent .footerCard .footerGrid .linkGroup ul li .icon {
-  font-size: 1rem;
-  color: var(--secondary-color);
-}
-.footer .secContent .footerCard .footerGrid .linkGroup ul li:hover {
-  color: var(--primary-color);
-  transform: translateX(5px);
-}
-.footer .secContent .footerCard .footerGrid .linkGroup .contactInfo p {
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-  color: var(--textColor);
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 0.95rem;
 }
-.footer .secContent .footerCard .footerGrid .linkGroup .contactInfo p .icon {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn ul li svg {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+.footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn ul li:hover {
   color: var(--primary-color);
+  padding-left: 8px;
 }
-.footer .secContent .footerCard .footerBottom {
-  border-top: 1px solid var(--whiteColorDream);
-  padding: 2rem 0;
+.footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn .contactDetails p {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-.footer .secContent .footerCard .footerBottom small {
+  gap: 12px;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
   color: var(--textColor);
-  font-weight: 600;
-  opacity: 0.7;
+  white-space: nowrap;
 }
-.footer .secContent .footerCard .footerBottom .bottomLinks {
+.footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn .contactDetails p .c-icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+.footerMain .contentWrapper .mainFooterCard .footerLegal {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  border-top: 1px solid var(--whiteColorDream);
+  padding: 2.5rem 0;
+  justify-content: space-between;
+}
+.footerMain .contentWrapper .mainFooterCard .footerLegal small {
+  color: var(--textColor);
+  font-weight: 700;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.footerMain .contentWrapper .mainFooterCard .footerLegal .legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
   cursor: pointer;
 }
-@media (max-width: 992px) {
-  .footer .secContent .footerCard .footerGrid {
+.footerMain .contentWrapper .mainFooterCard .footerLegal .legalLinks small:hover {
+  color: var(--primary-color);
+}
+
+/* =========================================
+   MEDIA QUERIES
+   ========================================= */
+@media screen and (max-width: 1024px) {
+  .footerMain .contentWrapper .mainFooterCard .footerGrid {
+    /* Switches to 2 columns on tablets */
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
 }
-@media (max-width: 600px) {
-  .footer .secContent .contactDiv {
-    padding: 2rem;
-    text-align: center;
-    justify-content: center;
+@media screen and (max-width: 768px) {
+  .footerMain {
+    padding-top: 6rem;
   }
-  .footer .secContent .contactDiv .inputDiv {
+  .footerMain .contentWrapper .newsletterBox {
     flex-direction: column;
+    text-align: center;
+    padding: 2.5rem;
+  }
+  .footerMain .contentWrapper .newsletterBox .quoteActionSide {
     width: 100%;
   }
-  .footer .secContent .contactDiv .inputDiv .btn {
-    padding: 15px;
+  .footerMain .contentWrapper .newsletterBox .quoteActionSide .quoteBtn {
+    width: 100%;
+    justify-content: center;
   }
-  .footer .secContent .footerCard .footerGrid {
+}
+@media screen and (max-width: 600px) {
+  .footerMain .contentWrapper .mainFooterCard {
+    padding: 3rem 1.5rem 0;
+  }
+  .footerMain .contentWrapper .mainFooterCard .footerGrid {
+    /* Switches to 1 column on mobile */
     grid-template-columns: 1fr;
+    text-align: center;
   }
-  .footer .secContent .footerCard .footerBottom {
+  .footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .logoGroup {
+    justify-content: center;
+  }
+  .footerMain .contentWrapper .mainFooterCard .footerGrid .introColumn .socialIcons {
+    justify-content: center;
+  }
+  .footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn .title {
+    white-space: normal;
+  }
+  .footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn ul li {
+    justify-content: center;
+  }
+  .footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn ul li:hover {
+    padding-left: 0;
+  }
+  .footerMain .contentWrapper .mainFooterCard .footerGrid .linkColumn .contactDetails p {
+    justify-content: center;
+    white-space: normal;
+  }
+  .footerMain .contentWrapper .mainFooterCard .footerLegal {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     text-align: center;
   }
 }/*# sourceMappingURL=footer.css.map */

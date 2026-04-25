@@ -21,7 +21,6 @@ const TailorPage = () => {
       <div className="container">
         <div className="builderWrapper grid">
           
-          {/* SIDEBAR NAVIGATION */}
           <aside className="builderSidebar">
             <div className="sidebarHeader">
               <span className="subtitle">Itinerary Architect</span>
@@ -47,7 +46,6 @@ const TailorPage = () => {
             </div>
           </aside>
 
-          {/* FORM CONTENT */}
           <main className="builderContent">
             <form onSubmit={(e) => e.preventDefault()}>
               

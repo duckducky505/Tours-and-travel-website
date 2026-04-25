@@ -27,7 +27,7 @@ function App() {
           <Route path='/packages' element={<Packages/>}/>
           <Route path='/about-us' element={<AboutPage/>}/>
           <Route path='/team-members' element={<MeetTeam/>}/>
-          <Route path='/tailor-mode' element={<TailorMade/>}/>
+          <Route path='/tailor-made' element={<TailorMade/>}/>
           <Route path="/trip/:slug" element={<NepalTripLayout data={tripData} />} />
         </Routes>
         <Footer/>

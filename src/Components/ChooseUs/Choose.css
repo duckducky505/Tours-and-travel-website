@@ -51,8 +51,8 @@
   font-size: 1.1rem;
 }
 .why-choose-us .content-side .trust-badge {
-  display: flex;
-  align-items: center;
+  text-align: left;
+  align-self: center;
   gap: 1.5rem;
   background: var(--whiteColor);
   padding: 1.5rem;
@@ -74,7 +74,7 @@
 }
 .why-choose-us .content-side .trust-badge .badge-text p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--greyText);
   line-height: 1.2;
 }
@@ -82,7 +82,6 @@
   /* Right Side: Feature Cards */
 }
 .why-choose-us .features-side .features-grid {
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
@@ -101,8 +100,6 @@
   background: rgba(16, 181, 203, 0.1);
   color: var(--primary-color);
   border-radius: 1rem;
-  display: flex;
-  align-items: center;
   justify-content: center;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
@@ -162,9 +159,6 @@
 @media screen and (max-width: 600px) {
   .why-choose-us .content-side .title {
     font-size: 2.2rem;
-  }
-  .why-choose-us .content-side {
-    /* Vertical alignment fix for trust badge */
   }
   .why-choose-us .content-side .trust-badge {
     flex-direction: column;
