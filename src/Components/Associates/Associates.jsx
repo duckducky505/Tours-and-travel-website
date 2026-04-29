@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import './Associates.scss';
+import './Associates.css';
 
 const partners = [
   { id: 1, name: 'Mountain Expedition', logo: 'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=600', website: '#' },

@@ -92,6 +92,15 @@
   background: var(--inputColor);
   border-radius: 3rem;
 }
+.home .homeContent .cardDiv .input select {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  color: var(--textColor);
+  cursor: pointer;
+}
 .home .homeContent .cardDiv .input input {
   background: none;
   border: none;
@@ -112,6 +121,7 @@
 }
 .home .homeContent .cardDiv .input .input[type=range] {
   background: blue;
+  cursor: pointer;
 }
 .home .homeContent .cardDiv .searchOptions {
   position: absolute;

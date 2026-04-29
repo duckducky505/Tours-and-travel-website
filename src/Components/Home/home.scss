@@ -102,6 +102,15 @@
                 background: var(--inputColor);
                 border-radius: 3rem;
 
+                select {
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    font-size: 13px;
+                    color: var(--textColor);
+                    cursor: pointer;
+                }
 
                 input{
                     background: none;
@@ -121,8 +130,9 @@
 
                 }
 
-                .input[type=range]{
+                .input[type="range"]{
                     background: blue;
+                    cursor: pointer;
                 }
             }
 

@@ -15,10 +15,8 @@ import Packages from './Pages/Packages/Packages'
 import TailorMade from './Pages/Tailor/TailorPage'
 
 function App() {
-
   return(
     <>
-    
       <BrowserRouter>
         <Navbar/>
         <Routes>
@@ -28,11 +26,11 @@ function App() {
           <Route path='/about-us' element={<AboutPage/>}/>
           <Route path='/team-members' element={<MeetTeam/>}/>
           <Route path='/tailor-made' element={<TailorMade/>}/>
+          <Route path='/search' element={<NepalTripLayout />} />
           <Route path="/trip/:slug" element={<NepalTripLayout data={tripData} />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
-      
     </>
   )
 

@@ -21,9 +21,9 @@ const Navbar = () => {
         <section className="navBarSection">
             <header className="header flex">
                 <div className="logoDiv">
-                    <a href="" className="logo flex">
+                    <Link to="/" className="logo flex">
                         <h1><MdOutlineTravelExplore className='icon'/> Travel</h1>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className={active}>
@@ -56,8 +56,6 @@ const Navbar = () => {
                     <div onClick={removeNav} className="closeNavbar">
                         <AiFillCloseCircle className='icon'/>
                     </div>
-
-
                 </div>
 
                 

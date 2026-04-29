@@ -5,23 +5,75 @@ import Data from "../../Components/Trip/TripData";
 import { HiOutlineLocationMarker, HiSearch } from 'react-icons/hi';
 import { BiFilterAlt } from 'react-icons/bi';
 import { BsArrowRightShort } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Packages.css';
 
 const Packages = () => {
+
+  const location = useLocation();
+  
+  const [filteredTrips, setFilteredTrips] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+
+
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(2000);
+  const [durationCard, setDurationCard] = useState("");
+
+  const [searchBarChange,setSearchBarChange] = useState("");
+
+  useEffect(() => {
+    const onSearchFilter = () => {
+      const toLowerSearch = searchBarChange.toLowerCase();
+
+      const results = Data.filter((packages) =>{
+        const filteredPackages =  packages.location?.toLowerCase().includes(toLowerSearch) || packages.destTitle?.toLowerCase().includes(toLowerSearch) || packages.tagline?.toLowerCase().includes(toLowerSearch);
+        return filteredPackages;
+      });
+      setFilteredTrips(results);
+    }
+    onSearchFilter();
+  },[searchBarChange]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const dest = params.get('dest');  
+    const dur = params.get('dur');
+    const prc = params.get('prc'); 
+
+    if (dest || dur || prc) {
+      const results = Data.filter((trip) => {
+        const matchingDestination = !dest || dest === "" || trip.location === dest;
+        const matchingDuration = !dur || dur === "" || trip.duration === dur;
+        
+        const tripPrice = parseInt(trip.fees.replace(/[$,]/g, ''));
+        const matchingPrice = !prc || tripPrice <= parseInt(prc);
+
+        return matchingDestination && matchingDuration && matchingPrice;
+      });
+      setFilteredTrips(results);
+    } else {
+      setFilteredTrips(Data);
+    }
+    
+    setCurrentPage(1);
+  }, [location.search]);
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
     window.scrollTo(0, 0); 
   }, [currentPage]);
 
-  // Pagination Logic 
+
+  const applyFiltersBtn = () => {
+    
+  }
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = Data.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(Data.length / itemsPerPage);
+  const currentItems = filteredTrips.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredTrips.length / itemsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -36,7 +88,7 @@ const Packages = () => {
         <div className="searchBarContainer" data-aos="fade-up">
           <div className="searchWrapper">
             <HiSearch className="searchIcon" />
-            <input type="text" placeholder="Search by destination or activity..." />
+            <input type="text" placeholder="Search by destination or activity..." onChange={(e) => setSearchBarChange(e.target.value)}/>
             <button className="searchBtn">Find Trips</button>
           </div>
         </div>
@@ -55,12 +107,12 @@ const Packages = () => {
               <div className="priceInputs">
                 <div className="inputBox">
                   <span>Min</span>
-                  <input type="number" placeholder="0" />
+                  <input type="number" placeholder="0" min={0} onChange={(e) => setMinValue(e.target.value)}/>
                 </div>
                 <div className="divider">-</div>
                 <div className="inputBox">
                   <span>Max</span>
-                  <input type="number" placeholder="2500" />
+                  <input type="number" placeholder="2500" max={2000} onChange={(e) => setMaxValue(e.target.value)}/>
                 </div>
               </div>
             </div>
@@ -75,68 +127,71 @@ const Packages = () => {
                 </select>
             </div>
 
-            <button className="applyBtn">Apply Filters</button>
-            <button className="clearBtn">Clear All</button>
+            <button className="applyBtn" onClick={applyFiltersBtn}>Apply Filters</button>
+            <button className="clearBtn" onClick={() => setFilteredTrips(Data)}>Clear All</button>
           </div>
         </aside>
 
         <main className="packagesContent">
           <div className="sortBar">
-            <p>Showing <strong>{indexOfFirstItem + 1} - {Math.min(indexOfLastItem, Data.length)}</strong> of {Data.length} packages</p>
+            <p>Showing <strong>{filteredTrips.length > 0 ? indexOfFirstItem + 1 : 0} - {Math.min(indexOfLastItem, filteredTrips.length)}</strong> of {filteredTrips.length} packages</p>
           </div>
 
           <div className="packageGrid">
-            {currentItems.map(({ id, imgSrc, destTitle, location, grade, fees, description, slug }) => (
-              <div key={id} className="packageCard" data-aos="fade-up">
-                <div className="imgContainer">
-                  <img src={imgSrc} alt={destTitle} />
-                  <span className="badge">{grade}</span>
-                </div>
-
-                <div className="cardBody">
-                  <div className="priceTag">{fees}</div>
-                  <h3 className="cardTitle">{destTitle}</h3>
-                  <div className="location">
-                    <HiOutlineLocationMarker className="icon" />
-                    <span>{location}</span>
+            {currentItems.length > 0 ? (
+              currentItems.map(({ id, imgSrc, destTitle, location, grade, fees, description, slug }) => (
+                <div key={id} className="packageCard" data-aos="fade-up">
+                  <div className="imgContainer">
+                    <img src={imgSrc} alt={destTitle} />
+                    <span className="badge">{grade}</span>
                   </div>
-                  <p className="description">{description}</p>
-                  
-                  <Link to={`/trip/${slug}`} className="viewBtn">
-                    View Trip <BsArrowRightShort className="icon" />
-                  </Link>
+
+                  <div className="cardBody">
+                    <div className="priceTag">{fees}</div>
+                    <h3 className="cardTitle">{destTitle}</h3>
+                    <div className="location">
+                      <HiOutlineLocationMarker className="icon" />
+                      <span>{location}</span>
+                    </div>
+                    <p className="description">{description}</p>
+                    
+                    <Link to={`/trip/${slug}`} className="viewBtn">
+                      View Trip <BsArrowRightShort className="icon" />
+                    </Link>
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div className="noResults" style={{textAlign: 'center', padding: '2rem'}}>
+                <h3>No packages found for this search.</h3>
               </div>
-            ))}
+            )}
           </div>
 
-          <div className="pagination">
-            <button 
-              disabled={currentPage === 1} 
-              onClick={() => paginate(currentPage - 1)}
-              className="pageBtn"
-            >
-              Prev
-            </button>
-            
-            {[...Array(totalPages)].map((_, i) => (
+          {totalPages > 1 && (
+            <div className="pagination">
               <button 
-                key={i} 
-                onClick={() => paginate(i + 1)}
-                className={`pageBtn ${currentPage === i + 1 ? 'active' : ''}`}
+                disabled={currentPage === 1} 
+                onClick={() => paginate(currentPage - 1)}
+                className="pageBtn"
               >
-                {i + 1}
+                Prev
               </button>
-            ))}
-
-            <button 
-              disabled={currentPage === totalPages} 
-              onClick={() => paginate(currentPage + 1)}
-              className="pageBtn"
-            >
-              Next
-            </button>
-          </div>
+              
+              {[...Array(totalPages)].map((_, i) => (
+                <button 
+                  key={i} 
+                  onClick={() => paginate(i + 1)}
+                  className={`pageBtn ${currentPage === i + 1 ? 'active' : ''}`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              <button disabled={currentPage === totalPages} onClick={() => paginate(currentPage + 1)} className="pageBtn">
+                Next
+              </button>
+            </div>
+          )}
         </main>
       </div>
     </section>
