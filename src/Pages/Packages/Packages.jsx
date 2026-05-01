@@ -15,8 +15,7 @@ const Packages = () => {
   const [filteredTrips, setFilteredTrips] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-
-
+  
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(2000);
   const [durationCard, setDurationCard] = useState("");

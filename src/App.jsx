@@ -13,6 +13,7 @@ import AboutPage from './Pages/About/AboutPage'
 import MeetTeam from './Pages/MeetTeam/MeetTeam'
 import Packages from './Pages/Packages/Packages'
 import TailorMade from './Pages/Tailor/TailorPage'
+import Quote from './Pages/Quote/Quote'
 
 function App() {
   return(
@@ -27,6 +28,7 @@ function App() {
           <Route path='/team-members' element={<MeetTeam/>}/>
           <Route path='/tailor-made' element={<TailorMade/>}/>
           <Route path='/search' element={<NepalTripLayout />} />
+          <Route path='/quote' element={<Quote />} />
           <Route path="/trip/:slug" element={<NepalTripLayout data={tripData} />} />
         </Routes>
         <Footer/>

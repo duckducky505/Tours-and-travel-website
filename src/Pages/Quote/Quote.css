@@ -1,0 +1,137 @@
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --blackColor: #1b2d36;
+  --whiteColor: #ffffff;
+  --textColor: #58585f;
+  --inputColor: #f0f4f8;
+}
+
+.quoteSection .quoteWrapper {
+  grid-template-columns: 300px 1fr;
+  background: var(--whiteColor);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  min-height: 700px;
+}
+.quoteSection .quoteSidebar {
+  background: var(--blackColor);
+  padding: 3rem 2rem;
+  color: var(--whiteColor);
+}
+.quoteSection .quoteSidebar .sidebarHeader {
+  margin-bottom: 3rem;
+}
+.quoteSection .quoteSidebar .sidebarHeader .subtitle {
+  color: var(--secondary-color);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.quoteSection .quoteSidebar .sidebarHeader .title {
+  font-size: 1.6rem;
+  margin-top: 5px;
+}
+.quoteSection .quoteSidebar .stepList {
+  display: grid;
+  gap: 1.5rem;
+}
+.quoteSection .quoteSidebar .stepList .stepItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.4;
+}
+.quoteSection .quoteSidebar .stepList .stepItem.active {
+  opacity: 1;
+  color: var(--secondary-color);
+}
+.quoteSection .quoteSidebar .stepList .stepItem .icon {
+  font-size: 1.3rem;
+}
+.quoteSection .quoteSidebar .stepList .stepItem p {
+  font-weight: 600;
+  font-size: 14px;
+}
+.quoteSection .quoteContent {
+  padding: 4rem;
+}
+.quoteSection .quoteContent .formStep {
+  margin-bottom: 3rem;
+}
+.quoteSection .quoteContent .formStep h3 {
+  font-size: 1.5rem;
+  color: var(--blackColor);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 15px;
+}
+.quoteSection .quoteContent .inputRow {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 1rem;
+}
+.quoteSection .quoteContent .inputRow.grid {
+  display: grid;
+}
+.quoteSection .quoteContent .inputBox {
+  margin-bottom: 1.5rem;
+}
+.quoteSection .quoteContent .inputBox label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--blackColor);
+  margin-bottom: 8px;
+}
+.quoteSection .quoteContent .inputBox input, .quoteSection .quoteContent .inputBox select, .quoteSection .quoteContent .inputBox textarea {
+  width: 100%;
+  background: var(--inputColor);
+  border: 2px solid transparent;
+  padding: 12px 15px;
+  border-radius: 10px;
+  outline: none;
+  font-family: inherit;
+  transition: 0.3s;
+}
+.quoteSection .quoteContent .inputBox input:focus, .quoteSection .quoteContent .inputBox select:focus, .quoteSection .quoteContent .inputBox textarea:focus {
+  border-color: var(--primary-color);
+  background: var(--whiteColor);
+}
+.quoteSection .quoteContent .formFooter {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--inputColor);
+}
+.quoteSection .quoteContent .formFooter .submitBtn {
+  background: var(--primary-color);
+  color: var(--whiteColor);
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.quoteSection .quoteContent .formFooter .submitBtn:hover {
+  background: var(--blackColor);
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+  .quoteSection .quoteWrapper {
+    grid-template-columns: 1fr;
+  }
+  .quoteSection .quoteWrapper .quoteSidebar {
+    padding: 2rem;
+  }
+  .quoteSection .quoteWrapper .quoteSidebar .stepList {
+    display: none;
+  }
+  .quoteSection .quoteWrapper .quoteContent {
+    padding: 2rem;
+  }
+  .quoteSection .quoteWrapper .quoteContent .inputRow {
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=Quote.css.map */

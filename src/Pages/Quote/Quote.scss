@@ -1,0 +1,103 @@
+:root {
+  --primary-color: #0073a8;
+  --secondary-color: #10b5cb;
+  --blackColor: #1b2d36;
+  --whiteColor: #ffffff;
+  --textColor: #58585f;
+  --inputColor: #f0f4f8;
+}
+
+.quoteSection {
+  .quoteWrapper {
+    grid-template-columns: 300px 1fr;
+    background: var(--whiteColor);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    min-height: 700px;
+  }
+
+  .quoteSidebar {
+    background: var(--blackColor);
+    padding: 3rem 2rem;
+    color: var(--whiteColor);
+
+    .sidebarHeader {
+      margin-bottom: 3rem;
+      .subtitle { color: var(--secondary-color); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+      .title { font-size: 1.6rem; margin-top: 5px; }
+    }
+
+    .stepList {
+      display: grid;
+      gap: 1.5rem;
+      .stepItem {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        opacity: 0.4;
+        &.active { opacity: 1; color: var(--secondary-color); }
+        .icon { font-size: 1.3rem; }
+        p { font-weight: 600; font-size: 14px; }
+      }
+    }
+  }
+
+  .quoteContent {
+    padding: 4rem;
+    
+    .formStep {
+      margin-bottom: 3rem;
+      h3 { font-size: 1.5rem; color: var(--blackColor); margin-bottom: 1.5rem; border-left: 4px solid var(--primary-color); padding-left: 15px; }
+    }
+
+    .inputRow {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 1rem;
+      &.grid { display: grid; }
+    }
+
+    .inputBox {
+      margin-bottom: 1.5rem;
+      label { display: block; font-weight: 700; font-size: 13px; color: var(--blackColor); margin-bottom: 8px; }
+      
+      input, select, textarea {
+        width: 100%;
+        background: var(--inputColor);
+        border: 2px solid transparent;
+        padding: 12px 15px;
+        border-radius: 10px;
+        outline: none;
+        font-family: inherit;
+        transition: .3s;
+        &:focus { border-color: var(--primary-color); background: var(--whiteColor); }
+      }
+    }
+
+    .formFooter {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--inputColor);
+      .submitBtn {
+        background: var(--primary-color);
+        color: var(--whiteColor);
+        padding: 1rem 2.5rem;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover { background: var(--blackColor); }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+  .quoteSection .quoteWrapper {
+    grid-template-columns: 1fr;
+    .quoteSidebar { padding: 2rem; .stepList { display: none; } }
+    .quoteContent { padding: 2rem; .inputRow { grid-template-columns: 1fr; } }
+  }
+}
