@@ -60,7 +60,7 @@ const NepalTripLayout = () => {
               <small>Starting from</small>
               <h3>{trip.fees}</h3>
             </div>
-            <button className="book-btn">Book Now</button>
+            <Link className="book-btn" to="/quote">Book Now</Link>
           </div>
         </div>
 

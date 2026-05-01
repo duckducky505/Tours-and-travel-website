@@ -1,345 +1,259 @@
 /* VARIABLES */
-:root {
-  --primary-color: #0073a8;
-  --secondary-color: #10b5cb;
-  --whiteColor: #ffffff;
-  --blackColor: #1b2d36;
-  --textColor: #58585f;
-  --whiteColorDream: #eef2f5;
-  --glassBg: rgba(255, 255, 255, 0.12);
+$primary: #10b5cb;
+$primary-dark: #0073a8;
+$bg-dark: #0b151a;
+$text-muted: rgba(255, 255, 255, 0.6);
+$text-dim: rgba(255, 255, 255, 0.4);
+$white: #ffffff;
+$transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+/* MIXINS */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
 }
 
-.footerMain {
-  width: 100%;
+@mixin tablet {
+  @media (max-width: 1024px) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) { @content; }
+}
+
+.footer {
   position: relative;
-  padding: 8rem 0 3rem;
+  width: 100%;
+  color: $white;
+  padding-top: 6rem;
+  background: $bg-dark;
   overflow: hidden;
 
-  .videoOverlay {
+  /* Background & Video Styling */
+  .footer-bg {
     position: absolute;
-    height: 100%;
-    width: 100%;
     top: 0;
     left: 0;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 
     video {
-      height: 100%;
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
-    &::after {
-      content: '';
+    .footer-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        to bottom, 
-        rgba(0, 0, 0, 0.3), 
-        var(--blackColor) 95%
+        to bottom,
+        rgba($bg-dark, 0.7) 0%,
+        rgba($bg-dark, 0.95) 50%,
+        $bg-dark 100%
       );
     }
   }
 
-  .contentWrapper {
+  /* Upper CTA Section */
+  .footer-cta {
     display: flex;
-    flex-direction: column;
-    gap: 4rem;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4rem;
+    gap: 2rem;
 
-    .newsletterBox {
-      background: var(--glassBg);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 3.5rem;
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+    }
 
-      .textSide {
-        small {
-          color: var(--secondary-color);
-          font-weight: 800;
-          letter-spacing: 3px;
-        }
+    .cta-tagline {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      color: $primary;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
 
-        h2 {
-          color: var(--whiteColor);
-          font-size: 2.4rem;
-          margin-top: 8px;
+    .cta-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      max-width: 600px;
+      line-height: 1.2;
+    }
+
+    .cta-button {
+      @include flex-center;
+      background: $white;
+      color: $bg-dark;
+      padding: 1.2rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      gap: 12px;
+      transition: $transition;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover {
+        background: $primary;
+        color: $white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba($primary, 0.3);
+
+        svg {
+          transform: translateX(5px);
         }
       }
 
-      .quoteActionSide {
+      svg {
+        transition: $transition;
+      }
+    }
+  }
+
+  .footer-divider {
+    border: 0;
+    border-top: 1px solid rgba($white, 0.1);
+    margin-bottom: 4rem;
+  }
+
+  /* Main Links Grid */
+  .footer-main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 4rem;
+    padding-bottom: 5rem;
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+
+    .footer-brand {
+      .brand-logo {
+        @include flex-center;
+        gap: 10px;
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+
+        @include mobile { justify-content: center; }
+
+        .icon {
+          color: $primary;
+        }
+      }
+
+      .brand-desc {
+        color: $text-muted;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+      }
+
+      .brand-socials {
         display: flex;
-        align-items: center;
+        gap: 1.5rem;
 
-        .quoteBtn {
-          background: var(--secondary-color);
-          color: white;
-          padding: 1rem 2.5rem;
-          border-radius: 14px;
-          border: none;
-          font-weight: 700;
-          cursor: pointer;
-          transition: 0.4s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          gap: 12px;
-          min-width: 220px;
+        @include mobile { justify-content: center; }
 
-          .icon {
-            font-size: 1.2rem;
-          }
+        a {
+          color: $white;
+          font-size: 1.2rem;
+          transition: $transition;
 
           &:hover {
-            background: var(--primary-color);
+            color: $primary;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
           }
         }
       }
     }
 
-    .mainFooterCard {
-      background: var(--whiteColor);
-      border-radius: 30px;
-      padding: 5rem 4rem 0;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-
-      .footerGrid {
-        display: grid;
-        /* Force 4 columns on desktop to keep titles in one line */
-        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-        align-items: start;
-        gap: 3rem;
-        padding-bottom: 5rem;
-
-        .introColumn {
-          .logoGroup {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--blackColor);
-
-            .logoIcon {
-              color: var(--primary-color);
-              font-size: 2.2rem;
-            }
-          }
-
-          .para {
-            margin: 1.5rem 0;
-            line-height: 1.8;
-            color: var(--textColor);
-            font-size: 0.95rem;
-          }
-
-          .socialIcons {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-
-            .s-icon {
-              font-size: 1.5rem;
-              color: var(--blackColor);
-              transition: 0.3s;
-              cursor: pointer;
-
-              &:hover {
-                color: var(--primary-color);
-                transform: translateY(-3px);
-              }
-            }
-          }
-        }
-
-        .linkColumn {
-          .title {
-            display: block;
-            font-weight: 800;
-            color: var(--blackColor);
-            /* margin-bottom ensures spacing below the title */
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            /* White-space prevents titles from wrapping to next line */
-            white-space: nowrap; 
-          }
-
-          ul {
-            list-style: none;
-            padding: 0;
-
-            li {
-              color: var(--textColor);
-              margin-bottom: 15px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              transition: 0.3s;
-              cursor: pointer;
-              font-size: 0.95rem;
-
-              svg {
-                color: var(--secondary-color);
-                font-size: 1.1rem;
-              }
-
-              &:hover {
-                color: var(--primary-color);
-                padding-left: 8px;
-              }
-            }
-          }
-
-          .contactDetails {
-            p {
-              display: flex;
-              align-items: center;
-              gap: 12px;
-              font-size: 0.95rem;
-              margin-bottom: 15px;
-              color: var(--textColor);
-              white-space: nowrap;
-
-              .c-icon {
-                color: var(--primary-color);
-                font-size: 1.2rem;
-              }
-            }
-          }
-        }
+    /* Links Columns */
+    .footer-links-group, .footer-contact {
+      h5 {
+        font-size: 0.9rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: $white;
       }
 
-      .footerLegal {
+      nav {
         display: flex;
-        align-items: center;
-        border-top: 1px solid var(--whiteColorDream);
-        padding: 2.5rem 0;
-        justify-content: space-between;
-
-        small {
-          color: var(--textColor);
-          font-weight: 700;
-          opacity: 0.6;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-
-        .legalLinks {
-          display: flex;
-          align-items: center;
-          gap: 2.5rem;
-          cursor: pointer;
-
-          small {
-            &:hover {
-              color: var(--primary-color);
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-/* =========================================
-   MEDIA QUERIES
-   ========================================= */
-
-@media screen and (max-width: 1024px) {
-  .footerMain {
-    .contentWrapper {
-      .mainFooterCard {
-        .footerGrid {
-          /* Switches to 2 columns on tablets */
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .footerMain {
-    padding-top: 6rem;
-
-    .contentWrapper {
-      .newsletterBox {
         flex-direction: column;
-        text-align: center;
-        padding: 2.5rem;
+        gap: 1.1rem;
 
-        .quoteActionSide {
-          width: 100%;
+        a {
+          color: $text-muted;
+          text-decoration: none;
+          transition: $transition;
+          font-size: 0.95rem;
 
-          .quoteBtn {
-            width: 100%;
-            justify-content: center;
+          &:hover {
+            color: $primary;
+            padding-left: 8px;
           }
         }
       }
     }
-  }
-}
 
-@media screen and (max-width: 600px) {
-  .footerMain {
-    .contentWrapper {
-      .mainFooterCard {
-        padding: 3rem 1.5rem 0;
+    .footer-contact {
+      .contact-item {
+        @include flex-center;
+        gap: 12px;
+        margin-bottom: 1.2rem;
+        color: $text-muted;
+        font-size: 0.95rem;
 
-        .footerGrid {
-          /* Switches to 1 column on mobile */
-          grid-template-columns: 1fr;
-          text-align: center;
+        @include mobile { justify-content: center; }
 
-          .introColumn {
-            .logoGroup {
-              justify-content: center;
-            }
-
-            .socialIcons {
-              justify-content: center;
-            }
-          }
-
-          .linkColumn {
-            .title {
-              white-space: normal;
-            }
-
-            ul {
-              li {
-                justify-content: center;
-
-                &:hover {
-                  padding-left: 0;
-                }
-              }
-            }
-
-            .contactDetails {
-              p {
-                justify-content: center;
-                white-space: normal;
-              }
-            }
-          }
+        svg {
+          color: $primary;
+          font-size: 1.2rem;
         }
+      }
+    }
+  }
 
-        .footerLegal {
-          flex-direction: column;
-          gap: 1.5rem;
-          text-align: center;
+  /* Bottom Copyright Bar */
+  .footer-bottom {
+    border-top: 1px solid rgba($white, 0.05);
+    padding: 2.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $text-dim;
+    font-size: 0.85rem;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .bottom-links {
+      display: flex;
+      gap: 2rem;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: $transition;
+
+        &:hover {
+          color: $white;
         }
       }
     }
