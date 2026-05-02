@@ -14,14 +14,12 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            {/* Background Section */}
             <div className="footer-bg">
                 <video src={video2} loop autoPlay muted type='video/mp4'></video>
                 <div className="footer-overlay"></div>
             </div>
 
             <div className="footer-container container">
-                {/* Upper Section: Call to Action */}
                 <div className="footer-cta" data-aos="fade-up">
                     <div className="cta-content">
                         <span className="cta-tagline">Begin your journey</span>
@@ -34,9 +32,7 @@ const Footer = () => {
 
                 <hr className="footer-divider" />
 
-                {/* Main Grid */}
                 <div className="footer-main-grid">
-                    {/* Brand Info */}
                     <div className="footer-brand" data-aos="fade-up">
                         <div className="brand-logo">
                             <MdOutlineTravelExplore className='icon' />
@@ -55,14 +51,13 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Links Groups */}
                     <div className="footer-links-group" data-aos="fade-up" data-aos-delay="100">
                         <h5>Explorer</h5>
                         <nav>
                             <Link to="/about-us">About Us</Link>
                             <Link to="/quite">Get a quote</Link>
-                            <Link to="/sustainability">Sustainability</Link>
-                            <Link to="/safety">Safety Protocols</Link>
+                            <Link to="/packages">Packages</Link>
+                            <Link to="/team-members">Our Team</Link>
                         </nav>
                     </div>
 
@@ -76,7 +71,6 @@ const Footer = () => {
                         </nav>
                     </div>
 
-                    {/* Contact Info */}
                     <div className="footer-contact" data-aos="fade-up" data-aos-delay="300">
                         <h5>Contact Us</h5>
                         <div className="contact-item">
@@ -91,7 +85,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
                 <div className="footer-bottom">
                     <p className="copyright">© 2026 TRAVEL. Built for Adventure.</p>
                     <div className="bottom-links">
