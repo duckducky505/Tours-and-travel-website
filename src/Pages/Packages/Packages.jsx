@@ -187,7 +187,6 @@ const Packages = () => {
               value={searchBar}
               onChange={e => setSearchBar(e.target.value)}
             />
-            <button className="searchBtn" type="button">Find Trips</button>
           </div>
         </div>
       </div>
