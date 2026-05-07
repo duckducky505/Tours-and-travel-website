@@ -25,6 +25,9 @@
   color: var(--whiteColor);
   text-align: center;
 }
+.trip-page .trip-hero .hero-content {
+  padding: 0 1rem;
+}
 .trip-page .trip-hero .hero-content .badge {
   background: var(--secondary-color);
   padding: 6px 15px;
@@ -47,6 +50,7 @@
   gap: 15px;
   font-size: 1.2rem;
   font-weight: 500;
+  flex-wrap: wrap;
 }
 .trip-page .trip-hero .hero-content .hero-meta .divider {
   opacity: 0.5;
@@ -108,6 +112,8 @@
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
 }
 .trip-page .floating-bar .price-item .book-btn:hover {
   transform: translateY(-3px);
@@ -118,6 +124,7 @@
   justify-content: center;
   gap: 1rem;
   margin: 3rem 0 2rem;
+  flex-wrap: wrap;
 }
 .trip-page .tab-nav button {
   padding: 12px 30px;
@@ -176,6 +183,7 @@
   justify-content: center;
   font-weight: 700;
   z-index: 1;
+  flex-shrink: 0;
 }
 .trip-page .main-content-card .timeline .timeline-item h4 {
   font-size: 1.3rem;
@@ -247,36 +255,133 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .trip-page .help-section .contact-btn:hover {
   background: var(--secondary-color);
   color: white;
 }
-.trip-page {
-  /* Responsive */
-}
 @media (max-width: 992px) {
   .trip-page .floating-bar {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+    margin-top: -3rem;
+    gap: 0;
   }
   .trip-page .floating-bar .bar-item {
-    border: none;
+    border-right: none;
+    border-bottom: 1px solid var(--whiteColorDream);
+    justify-content: flex-start;
+    padding: 1rem;
   }
   .trip-page .floating-bar .price-item {
-    justify-content: center;
-    text-align: center;
+    grid-column: 1/-1;
+    justify-content: space-between;
+    border-bottom: none;
+    padding: 1rem;
   }
   .trip-page .floating-bar .price-item .price-text {
-    text-align: center;
+    text-align: left;
   }
-  .trip-page .inclusions-split {
+  .trip-page .main-content-card {
+    padding: 2.5rem 2rem;
+  }
+  .trip-page .main-content-card .inclusions-split {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .trip-page .help-section {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+    padding: 2.5rem 2rem;
+  }
+  .trip-page .help-section .contact-btn {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .trip-page .trip-hero {
+    height: 55vh;
+    min-height: 300px;
+  }
+  .trip-page .trip-hero .hero-content .hero-meta {
+    font-size: 1rem;
+    gap: 8px;
+  }
+  .trip-page .trip-hero .hero-content .hero-meta .divider {
+    display: none;
+  }
+  .trip-page .floating-bar {
+    grid-template-columns: 1fr;
+    margin-top: -2rem;
+    padding: 1rem 1.25rem;
+  }
+  .trip-page .floating-bar .bar-item {
+    padding: 0.85rem 0;
+    border-right: none;
+    border-bottom: 1px solid var(--whiteColorDream);
+    justify-content: flex-start;
+  }
+  .trip-page .floating-bar .price-item {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: none;
+    padding: 0.85rem 0 0;
+  }
+  .trip-page .floating-bar .price-item .price-text {
+    text-align: left;
+  }
+  .trip-page .floating-bar .price-item .price-text h3 {
+    font-size: 1.5rem;
+  }
+  .trip-page .floating-bar .price-item .book-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+  .trip-page .tab-nav {
+    gap: 0.5rem;
+    margin: 2rem 0 1.5rem;
+  }
+  .trip-page .tab-nav button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+  .trip-page .main-content-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .trip-page .main-content-card .tab-panel h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .trip-page .main-content-card .tab-panel .description-text {
+    font-size: 1rem;
+  }
+  .trip-page .main-content-card .timeline .timeline-item {
+    gap: 1.25rem;
+  }
+  .trip-page .main-content-card .timeline .timeline-item:not(:last-child)::before {
+    left: 38px;
+  }
+  .trip-page .main-content-card .timeline .timeline-item .day-circle {
+    min-width: 78px;
+    font-size: 0.85rem;
+  }
+  .trip-page .main-content-card .timeline .timeline-item h4 {
+    font-size: 1.1rem;
+  }
+  .trip-page .help-section {
+    padding: 2rem 1.25rem;
+  }
+  .trip-page .help-section h2 {
+    font-size: 1.6rem;
+  }
+  .trip-page .help-section p {
+    font-size: 0.95rem;
   }
 }
 
