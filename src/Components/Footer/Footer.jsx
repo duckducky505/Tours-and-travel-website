@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { FiArrowRight, FiInstagram, FiTwitter, FiYoutube, FiFacebook } from 'react-icons/fi';
-import { MdOutlineTravelExplore, MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
+import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import video2 from '../../assets/video1.mp4';
+import video2 from '../../assets/video1.webm';
+import logo from '../../assets/nodescpimg.png';
 import './footer.css';
 
 const Footer = () => {
@@ -34,20 +35,25 @@ const Footer = () => {
 
                 <div className="footer-main-grid">
                     <div className="footer-brand" data-aos="fade-up">
+
+                        {/* Logo + brand name side by side on desktop, stacked on mobile */}
                         <div className="brand-logo">
-                            <MdOutlineTravelExplore className='icon' />
-                            <span>TRAVEL.</span>
+                            <Link to="/" className="brand-logo__link">
+                                <img src={logo} alt="Sacred Nepal Logo" className="brand-logo__img" />
+                                <span className="brand-logo__name">Sacred Nepal</span>
+                            </Link>
                         </div>
+
                         <p className="brand-desc">
-                            Crafting purposeful journeys across Nepal. We specialize in 
-                            high-altitude expeditions and cultural immersions that leave a 
+                            Crafting purposeful journeys across Nepal. We specialize in
+                            high-altitude expeditions and cultural immersions that leave a
                             lasting impact.
                         </p>
                         <div className="brand-socials">
-                            <a href="#"><FiInstagram /></a>
-                            <a href="#"><FiTwitter /></a>
-                            <a href="#"><FiYoutube /></a>
-                            <a href="#"><FiFacebook /></a>
+                            <a href="#" aria-label="Instagram"><FiInstagram /></a>
+                            <a href="#" aria-label="Twitter"><FiTwitter /></a>
+                            <a href="#" aria-label="YouTube"><FiYoutube /></a>
+                            <a href="#" aria-label="Facebook"><FiFacebook /></a>
                         </div>
                     </div>
 
@@ -55,7 +61,7 @@ const Footer = () => {
                         <h5>Explorer</h5>
                         <nav>
                             <Link to="/about-us">About Us</Link>
-                            <Link to="/quite">Get a quote</Link>
+                            <Link to="/quote">Get a quote</Link>
                             <Link to="/packages">Packages</Link>
                             <Link to="/team-members">Our Team</Link>
                         </nav>

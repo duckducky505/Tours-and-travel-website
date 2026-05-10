@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import './home.css';
 import { GrLocation } from 'react-icons/gr';
-import video from '../../assets/video.mp4';
 import { FiFacebook } from 'react-icons/fi';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { FaTripadvisor } from 'react-icons/fa';
 import { BsListTask } from 'react-icons/bs';
 import { TbApps } from 'react-icons/tb';
 import { CiSearch } from 'react-icons/ci';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 import Data from "../../Components/Trip/TripData";
+import poster from '../../assets/by-the-lake.jpg';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
 const Home = () => {
     const navigate = useNavigate();
 
-    //DropDown 
+    // Dropdown Data derivation
     const dropDestination = [...new Set(Data.map(item => item.location))];
     const dropDuration = [...new Set(Data.map(item => item.duration))].sort((a, b) => parseInt(a) - parseInt(b));
 
-
+    // State
     const [destination, setDestination] = useState("");
     const [duration, setDuration] = useState("");
-    const [price, setPrice] = useState(2000); 
-
+    const [price, setPrice] = useState(2000);
 
     const handleSearch = () => {
         navigate(`/packages?dest=${destination}&dur=${duration}&prc=${price}`);
@@ -37,33 +36,46 @@ const Home = () => {
 
     return (
         <section className="home">
+            {/* Background Image */}
+            <img src={poster} alt="Background" className="homeBgImage" />
+            
+            {/* Dark Overlay for text readability */}
             <div className="overlay"></div>
-            <video src={video} muted autoPlay loop type="video/mp4"></video>
 
             <div className="homeContent container">
                 <div className="textDiv">
-                    <span data-aos="fade-up" className="smallText">Our Packages</span>
-                    <h1 data-aos="fade-up" className="homeTitle">Search Your Holiday</h1>
+                    <span data-aos="fade-up" className="smallText">
+                        Our Packages
+                    </span>
+                    <h1 data-aos="fade-up" className="homeTitle">
+                        Search Your Holiday
+                    </h1>
                 </div>
 
                 <div data-aos="fade-up" className="cardDiv grid">
                     <div className="destinationInput">
-                        <label htmlFor='city'>Select your destination:</label>
+                        <label htmlFor="city">Select your destination:</label>
                         <div className="input flex">
-                            <select value={destination} onChange={(e) => setDestination(e.target.value)}>
+                            <select 
+                                value={destination} 
+                                onChange={(e) => setDestination(e.target.value)}
+                            >
                                 <option value="">All Destinations</option>
                                 {dropDestination.map((desti, index) => (
                                     <option key={index} value={desti}>{desti}</option>
                                 ))}
                             </select>
-                            <GrLocation className='icon' />
+                            <GrLocation className="icon" />
                         </div>
                     </div>
 
                     <div className="dateInput">
-                        <label htmlFor='date'>Select the Trip Duration:</label>
+                        <label htmlFor="date">Select the Trip Duration:</label>
                         <div className="input flex">
-                            <select value={duration} onChange={(e) => setDuration(e.target.value)}>
+                            <select 
+                                value={duration} 
+                                onChange={(e) => setDuration(e.target.value)}
+                            >
                                 <option value="">Any Duration</option>
                                 {dropDuration.map((dura, index) => (
                                     <option key={index} value={dura}>{dura}</option>
@@ -74,7 +86,7 @@ const Home = () => {
 
                     <div className="priceInput">
                         <div className="label_total flex">
-                            <label htmlFor='price'>Max Budget:</label>
+                            <label htmlFor="price">Max Budget:</label>
                             <h3 className="total">${price}</h3>
                         </div>
                         <div className="input flex">
@@ -89,20 +101,20 @@ const Home = () => {
                     </div>
 
                     <div className="searchOptions flex" onClick={handleSearch}>
-                        <CiSearch className='icon' />
+                        <CiSearch className="icon" />
                         <span>SEARCH TRIPS</span>
                     </div>
                 </div>
 
                 <div data-aos="fade-up" className="homeFooterIcons flex">
                     <div className="rightIcons">
-                        <FiFacebook className='icon' />
-                        <AiOutlineInstagram className='icon' />
-                        <FaTripadvisor className='icon' />
+                        <FiFacebook className="icon" />
+                        <AiOutlineInstagram className="icon" />
+                        <FaTripadvisor className="icon" />
                     </div>
                     <div className="leftIcons flex">
-                        <BsListTask className='icon' />
-                        <TbApps className='icon' />
+                        <BsListTask className="icon" />
+                        <TbApps className="icon" />
                     </div>
                 </div>
             </div>

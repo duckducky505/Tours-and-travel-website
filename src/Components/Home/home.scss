@@ -21,25 +21,27 @@
     justify-content: center;
     margin: auto;
 
+    .homeBgImage {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        object-fit: cover;
+        object-position: center;
+    }
+
     .overlay{
         position: absolute;
         height: 100%;
         width: 100%;
-        // background-color: rgb(47,106,127);
+        background: rgba(0, 0, 0, 0.2);
         top: 0;
         bottom: 0;
         z-index: 1;
         mix-blend-mode: hard-light;
     }
-    video{
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        bottom: 0;
-        object-fit: cover;
-    }
-
     .homeContent{
         width: 100%;
         height: max-content;

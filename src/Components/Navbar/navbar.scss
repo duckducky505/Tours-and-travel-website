@@ -1,7 +1,7 @@
 // ═══════════════════════════════════════════════════════════════
-//  navbar.scss
-//  Fully aligned with app.css — uses .container for consistent
-//  alignment across all breakpoints. No fixed padding on header.
+//  navbar.scss  —  fixed
+//  Only change from original: .logoDiv + .logoImg constraints.
+//  .flex lives in app.css — not duplicated here.
 // ═══════════════════════════════════════════════════════════════
 
 $trans: .3s ease;
@@ -11,7 +11,7 @@ $trans: .3s ease;
   z-index: 1000;
 }
 
-// Full-width sticky bar — just a coloured strip
+// Full-width sticky bar
 .header {
   position: fixed;
   top: 0;
@@ -22,8 +22,6 @@ $trans: .3s ease;
   box-shadow: 0 2px 12px rgba(2, 15, 29, .07);
   transition: box-shadow $trans;
 
-  // Inner row lives in .container (from app.css) so it
-  // auto-aligns with every other section at all breakpoints
   &__inner {
     display: flex;
     align-items: center;
@@ -33,7 +31,11 @@ $trans: .3s ease;
   }
 }
 
-// ── Logo ─────────────────────────────────────────────────────
+// ── Logo ──────────────────────────────────────────────────────
+.logoDiv {
+  flex-shrink: 0;   // stop it squishing when nav links crowd in
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -48,6 +50,19 @@ $trans: .3s ease;
     color: var(--primary-color);
     transform: translateY(3px);
   }
+}
+
+// ── THE FIX ───────────────────────────────────────────────────
+// An unconstrained <img> will use its natural pixel dimensions
+// and blow the header height wide open.
+// height: auto preserves the aspect ratio of any PNG/SVG you drop in.
+.logoImg {
+  height: 42px;          // controls navbar height — tweak freely
+  width: auto;           // keeps aspect ratio intact
+  max-width: 180px;      // hard cap so a very wide image can't overflow
+  display: block;        // removes the inline baseline gap
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 // ── Toggle (hamburger) ────────────────────────────────────────
@@ -71,7 +86,7 @@ $trans: .3s ease;
     height: max-content;
     width: 80%;
     border-radius: 1rem;
-    top: -500rem;         // hidden off-screen by default
+    top: -500rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2000;
@@ -80,7 +95,7 @@ $trans: .3s ease;
   }
 
   .activeNavbar {
-    top: 4.5rem;          // drops below the header bar
+    top: 4.5rem;
   }
 
   .navLists {
@@ -162,6 +177,3 @@ $trans: .3s ease;
 @media screen and (min-width: 960px) {
   .navItem { padding: 0 .7rem; }
 }
-
-// At 1240px+ app.css sets .container { width: 80%; margin: auto }
-// — no extra header padding needed here

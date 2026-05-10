@@ -1,11 +1,11 @@
 /* VARIABLES */
-$primary: #10b5cb;
+$primary:      #10b5cb;
 $primary-dark: #0073a8;
-$bg-dark: #0b151a;
-$text-muted: rgba(255, 255, 255, 0.6);
-$text-dim: rgba(255, 255, 255, 0.4);
-$white: #ffffff;
-$transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$bg-dark:      #0b151a;
+$text-muted:   rgba(255, 255, 255, 0.6);
+$text-dim:     rgba(255, 255, 255, 0.4);
+$white:        #ffffff;
+$transition:   0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 /* MIXINS */
 @mixin flex-center {
@@ -29,18 +29,15 @@ $transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: $bg-dark;
   overflow: hidden;
 
-  /* Background & Video Styling */
+  /* ── Background video ── */
   .footer-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: 0;
 
     video {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
     }
 
@@ -56,7 +53,13 @@ $transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
-  /* Upper CTA Section */
+  /* ── Container sits above video ── */
+  .footer-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── CTA row ── */
   .footer-cta {
     display: flex;
     justify-content: space-between;
@@ -103,15 +106,10 @@ $transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         color: $white;
         transform: translateY(-3px);
         box-shadow: 0 10px 20px rgba($primary, 0.3);
-
-        svg {
-          transform: translateX(5px);
-        }
+        svg { transform: translateX(5px); }
       }
 
-      svg {
-        transition: $transition;
-      }
+      svg { transition: $transition; }
     }
   }
 
@@ -121,113 +119,152 @@ $transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 4rem;
   }
 
-  /* Main Links Grid */
+  /* ── Main grid ── */
   .footer-main-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 4rem;
     padding-bottom: 5rem;
 
-    @include tablet {
-      grid-template-columns: 1fr 1fr;
-    }
-
+    @include tablet { grid-template-columns: 1fr 1fr; }
     @include mobile {
       grid-template-columns: 1fr;
       text-align: center;
       gap: 3rem;
     }
+  }
 
-    .footer-brand {
-      .brand-logo {
-        @include flex-center;
-        gap: 10px;
-        font-size: 1.8rem;
+  /* ── Brand column ── */
+  .footer-brand {
+
+    // ── Logo block: image left + text right (desktop)
+    //               image top  + text below (mobile)
+    .brand-logo {
+      margin-bottom: 1.8rem;
+
+      &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+
+        // Stack vertically on mobile
+        @include mobile {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+      // The image itself — sized to sit comfortably in the footer
+      &__img {
+        height: 70px;          // feels substantial without dominating
+        width: auto;
+        max-width: 120px;
+        object-fit: contain;
+        display: block;
+        // Subtle drop shadow so logo reads on dark bg
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+        transition: filter $transition;
+
+        &:hover {
+          filter: drop-shadow(0 4px 14px rgba($primary, 0.45));
+        }
+      }
+
+      // "Sacred Nepal" wordmark beside / below the image
+      &__name {
+        font-size: 1.55rem;
         font-weight: 900;
-        margin-bottom: 1.5rem;
-
-        @include mobile { justify-content: center; }
-
-        .icon {
-          color: $primary;
-        }
-      }
-
-      .brand-desc {
-        color: $text-muted;
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        font-size: 0.95rem;
-      }
-
-      .brand-socials {
-        display: flex;
-        gap: 1.5rem;
-
-        @include mobile { justify-content: center; }
-
-        a {
-          color: $white;
-          font-size: 1.2rem;
-          transition: $transition;
-
-          &:hover {
-            color: $primary;
-            transform: translateY(-3px);
-          }
-        }
-      }
-    }
-
-    /* Links Columns */
-    .footer-links-group, .footer-contact {
-      h5 {
-        font-size: 0.9rem;
-        font-weight: 800;
-        margin-bottom: 2rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 0.04em;
         color: $white;
-      }
+        line-height: 1.1;
+        white-space: nowrap;
 
-      nav {
-        display: flex;
-        flex-direction: column;
-        gap: 1.1rem;
-
-        a {
-          color: $text-muted;
-          text-decoration: none;
-          transition: $transition;
-          font-size: 0.95rem;
-
-          &:hover {
-            color: $primary;
-            padding-left: 8px;
-          }
+        // Accent the first word
+        &::first-line {
+          color: $primary;
         }
       }
     }
 
-    .footer-contact {
-      .contact-item {
-        @include flex-center;
-        gap: 12px;
-        margin-bottom: 1.2rem;
-        color: $text-muted;
-        font-size: 0.95rem;
+    .brand-desc {
+      color: $text-muted;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
 
-        @include mobile { justify-content: center; }
+    .brand-socials {
+      display: flex;
+      gap: 1.5rem;
 
-        svg {
+      @include mobile { justify-content: center; }
+
+      a {
+        color: $white;
+        font-size: 1.2rem;
+        transition: $transition;
+
+        &:hover {
           color: $primary;
-          font-size: 1.2rem;
+          transform: translateY(-3px);
         }
       }
     }
   }
 
-  /* Bottom Copyright Bar */
+  /* ── Links columns ── */
+  .footer-links-group,
+  .footer-contact {
+    h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: $white;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+
+      a {
+        color: $text-muted;
+        text-decoration: none;
+        transition: $transition;
+        font-size: 0.95rem;
+
+        &:hover {
+          color: $primary;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  /* ── Contact column ── */
+  .footer-contact {
+    .contact-item {
+      @include flex-center;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+      color: $text-muted;
+      font-size: 0.95rem;
+
+      @include mobile { justify-content: center; }
+
+      svg {
+        color: $primary;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  /* ── Bottom bar ── */
   .footer-bottom {
     border-top: 1px solid rgba($white, 0.05);
     padding: 2.5rem 0;
@@ -252,9 +289,7 @@ $transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         text-decoration: none;
         transition: $transition;
 
-        &:hover {
-          color: $white;
-        }
+        &:hover { color: $white; }
       }
     }
   }
