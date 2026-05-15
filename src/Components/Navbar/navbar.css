@@ -1,3 +1,17 @@
+:root {
+  --primary-color: #0D1B2A;
+  --secondary-color: #D4AF37;
+  --gradientColor:linear-gradient(to right, #D4AF37,#0D1B2A);
+  --whiteColor: #ffffff;
+  --blackColor:#1b2d36;
+  --textColor:#58585f;
+  --whiteColorDream: hsl(0, 0%, 93%);
+  --greyText:rgb(190,190,190);
+  --inputColor:rgb(239,239,239);
+  --bodyColor:rgb(240,240,246);
+  --cardBg:rgb(255,255,235);
+}
+
 .navBarSection {
   position: relative;
   z-index: 1000;
@@ -8,7 +22,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--whiteColorDream);
+  background: var(--primary-color);
   z-index: 1000;
   box-shadow: 0 2px 12px rgba(2, 15, 29, 0.07);
   transition: box-shadow 0.3s ease;
@@ -55,7 +69,7 @@
 }
 .toggleNavbar .icon {
   font-size: 25px;
-  color: var(--primary-color);
+  color: var(--whiteColorDream);
   transition: color 0.3s ease;
 }
 .toggleNavbar:hover .icon {
@@ -91,14 +105,14 @@
     padding: 0.5rem 0;
   }
   .navLink {
-    color: var(--textColor);
+    color: var(--primary-color);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   .navLink:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
   }
   .closeNavbar {
     position: absolute;
@@ -138,14 +152,14 @@
     padding: 0 0.45rem;
   }
   .navLink {
-    color: var(--textColor);
+    color: var(--whiteColorDream);
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   .navLink:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
   }
   .btn {
     margin-left: 1rem;

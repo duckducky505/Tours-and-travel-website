@@ -64,6 +64,9 @@ $body-bg:   var(--bodyColor);
       color: var(--blackColor);
       line-height: 1.15;
       margin-bottom: .75rem;
+      strong{
+        color: var(--secondary-color);
+      }
     }
 
     &__sub {

@@ -5,7 +5,7 @@ import { FiArrowRight, FiInstagram, FiTwitter, FiYoutube, FiFacebook } from 'rea
 import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import video2 from '../../assets/video1.webm';
-import logo from '../../assets/nodescpimg.png';
+import logo from '../../assets/logo-bg-remove.png';
 import './footer.css';
 
 const Footer = () => {
@@ -36,7 +36,6 @@ const Footer = () => {
                 <div className="footer-main-grid">
                     <div className="footer-brand" data-aos="fade-up">
 
-                        {/* Logo + brand name side by side on desktop, stacked on mobile */}
                         <div className="brand-logo">
                             <Link to="/" className="brand-logo__link">
                                 <img src={logo} alt="Sacred Nepal Logo" className="brand-logo__img" />
@@ -80,13 +79,13 @@ const Footer = () => {
                     <div className="footer-contact" data-aos="fade-up" data-aos-delay="300">
                         <h5>Contact Us</h5>
                         <div className="contact-item">
-                            <MdLocationOn /> <span>Thamel, Kathmandu, Nepal</span>
+                            <MdLocationOn /> <span>Pokhara, Nepal</span>
                         </div>
                         <div className="contact-item">
-                            <MdPhone /> <span>+977 1 45XX XXX</span>
+                            <MdPhone /> <span>+977 9856089339</span>
                         </div>
                         <div className="contact-item">
-                            <MdEmail /> <span>expeditions@travel.com</span>
+                            <MdEmail /> <span>sacrednepalofficial@gmail.com</span>
                         </div>
                     </div>
                 </div>

@@ -27,6 +27,9 @@
   line-height: 1.15;
   margin-bottom: 0.75rem;
 }
+.tp .tp-header__title strong {
+  color: var(--secondary-color);
+}
 .tp .tp-header__sub {
   color: var(--textColor);
   font-size: 0.95rem;

@@ -1,12 +1,4 @@
 @charset "UTF-8";
-/* ═══════════════════════════════════════════════════════════════
-   QuotePage.scss
-   Design mirrors TailorPage exactly:
-   same dark sidebar, same white form area, same step badges,
-   same inputs, same meter, same popup, same responsive rules.
-   All colours use :root CSS custom properties from app.css.
-   ═══════════════════════════════════════════════════════════════ */
-/* ── PAGE HEADER ──────────────────────────────────────────────── */
 .qp .qp-header {
   text-align: center;
   margin-bottom: 3rem;

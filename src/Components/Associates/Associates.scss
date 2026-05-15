@@ -1,12 +1,12 @@
 /* VARIABLES */
-:root {
-  --primary-color: #0073a8;
-  --secondary-color: #10b5cb;
-  --whiteColor: #ffffff;
-  --blackColor: #1b2d36;
-  --textColor: #58585f;
-  --bg-soft: #f4f7fa;
-}
+// :root {
+//   --primary-color: #0073a8;
+//   --secondary-color: #10b5cb;
+//   --whiteColor: #ffffff;
+//   --blackColor: #1b2d36;
+//   --textColor: #58585f;
+//   --bg-soft: #f4f7fa;
+// }
 
 .associatesSection {
   padding: 8rem 0;
@@ -23,7 +23,7 @@
       letter-spacing: -1px;
 
       span {
-        color: var(--primary-color);
+        color: var(--secondary-color);
       }
     }
 
@@ -45,7 +45,7 @@
     .partnerCard {
       text-decoration: none;
       width: 320px; /* Large sizing for logos */
-      background: var(--whiteColor);
+      background: var(--whiteColorDream);
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -67,7 +67,6 @@
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
-          /* NO FILTERS HERE */
           transition: 0.4s ease;
         }
       }
@@ -82,7 +81,7 @@
           display: block;
           font-size: 1.1rem;
           font-weight: 800;
-          color: var(--blackColor);
+          color: var(--secondary-color);
           margin-bottom: 4px;
         }
 

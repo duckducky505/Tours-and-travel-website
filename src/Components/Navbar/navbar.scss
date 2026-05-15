@@ -1,8 +1,17 @@
-// ═══════════════════════════════════════════════════════════════
-//  navbar.scss  —  fixed
-//  Only change from original: .logoDiv + .logoImg constraints.
-//  .flex lives in app.css — not duplicated here.
-// ═══════════════════════════════════════════════════════════════
+:root{
+  --primary-color: #0D1B2A;
+  --secondary-color: #D4AF37;
+  --gradientColor:linear-gradient(to right, #D4AF37,#0D1B2A);
+  --whiteColor: #ffffff;
+  --blackColor:#1b2d36;
+  --textColor:#58585f;
+  --whiteColorDream: hsl(0, 0%, 93%);
+  --greyText:rgb(190,190,190);
+  --inputColor:rgb(239,239,239);
+  --bodyColor:rgb(240,240,246);
+  --cardBg:rgb(255,255,235);
+  
+}
 
 $trans: .3s ease;
 
@@ -17,7 +26,7 @@ $trans: .3s ease;
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--whiteColorDream);
+  background: var(--primary-color);
   z-index: 1000;
   box-shadow: 0 2px 12px rgba(2, 15, 29, .07);
   transition: box-shadow $trans;
@@ -52,10 +61,7 @@ $trans: .3s ease;
   }
 }
 
-// ── THE FIX ───────────────────────────────────────────────────
-// An unconstrained <img> will use its natural pixel dimensions
-// and blow the header height wide open.
-// height: auto preserves the aspect ratio of any PNG/SVG you drop in.
+
 .logoImg {
   height: 42px;          // controls navbar height — tweak freely
   width: auto;           // keeps aspect ratio intact
@@ -71,7 +77,7 @@ $trans: .3s ease;
 
   .icon {
     font-size: 25px;
-    color: var(--primary-color);
+    color: var(--whiteColorDream);
     transition: color $trans;
   }
 
@@ -111,13 +117,13 @@ $trans: .3s ease;
   }
 
   .navLink {
-    color: var(--textColor);
+    color: var(--primary-color);
     font-size: .9rem;
     font-weight: 600;
     text-decoration: none;
     transition: color $trans;
 
-    &:hover { color: var(--primary-color); }
+    &:hover { color: var(--secondary-color); }
   }
 
   .closeNavbar {
@@ -159,13 +165,13 @@ $trans: .3s ease;
   .navItem { padding: 0 .45rem; }
 
   .navLink {
-    color: var(--textColor);
+    color: var(--whiteColorDream);
     font-size: .9rem;
     font-weight: 500;
     text-decoration: none;
     transition: color $trans;
 
-    &:hover { color: var(--primary-color); }
+    &:hover { color: var(--secondary-color); }
   }
 
   .btn {

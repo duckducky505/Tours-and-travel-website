@@ -36,10 +36,8 @@ const Home = () => {
 
     return (
         <section className="home">
-            {/* Background Image */}
             <img src={poster} alt="Background" className="homeBgImage" />
             
-            {/* Dark Overlay for text readability */}
             <div className="overlay"></div>
 
             <div className="homeContent container">

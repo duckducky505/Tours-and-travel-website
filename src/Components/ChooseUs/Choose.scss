@@ -1,13 +1,13 @@
 /* --- Variables & Core Settings --- */
-:root {
-  --primary-color: #0073a8;
-  --secondary-color: #10b5cb;
-  --blackColor: #1b2d36;
-  --textColor: #58585f;
-  --whiteColor: #ffffff;
-  --greyText: #9ca3af;
-  --bodyColor: #f8fafb;
-}
+// :root {
+//   --primary-color: #0073a8;
+//   --secondary-color: #10b5cb;
+//   --blackColor: #1b2d36;
+//   --textColor: #58585f;
+//   --whiteColor: #ffffff;
+//   --greyText: #9ca3af;
+//   --bodyColor: #f8fafb;
+// }
 
 .why-choose-us {
   padding: 8rem 0;
@@ -38,7 +38,7 @@
       line-height: 1.2;
       margin: 1.5rem 0;
       font-weight: 800;
-      span { color: var(--primary-color); }
+      span { color: var(--secondary-color); }
     }
 
     p {

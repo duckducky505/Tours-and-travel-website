@@ -18,7 +18,7 @@ const AboutPage = () => {
           <div className="story-content">
             <h2>Our Story</h2>
             <p>
-              Founded in the heart of Kathmandu, <strong>COMPANY NAME</strong> began with a simple 
+              Founded in the heart of Kathmandu, <strong>SACRED NEPAL</strong> began with a simple 
               vision: to provide authentic, safe, and sustainable access to the Himalayas. 
               What started as a small team of passionate guides has grown into a premier 
               travel collective recognized for excellence and innovation.

@@ -4,6 +4,7 @@ import { AiOutlineSafetyCertificate, AiOutlineHeart } from 'react-icons/ai';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import img from "../../assets/annapurna.jpg"; 
+import { Link } from 'react-router-dom';
 import './Intro.css';
 
 const Intro = () => {
@@ -60,7 +61,7 @@ const Intro = () => {
                             </div>
                         </div>
 
-                        <button className="cta-btn">Learn More About Us</button>
+                        <Link to="/about-us" className="cta-btn">Learn More About Us</Link>
                     </div>
                     
                 </div>

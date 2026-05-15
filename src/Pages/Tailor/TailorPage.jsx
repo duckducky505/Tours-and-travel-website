@@ -123,7 +123,7 @@ const TailorPage = () => {
 
     const formData = new FormData();
     Object.entries(fields).forEach(([k, v]) => formData.append(k, v));
-    formData.append('access_key', '6a4a939a-9f42-4015-a215-9973feb3dad5');
+    formData.append('access_key', 'f2bdcada-072f-4d95-9b1b-90fe47834a48');
 
     try {
       const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
@@ -170,7 +170,7 @@ const TailorPage = () => {
 
         <div className="tp-header" data-aos="fade-up">
           <span className="tp-header__eyebrow">Itinerary Architect</span>
-          <h2 className="tp-header__title">Design Your Perfect Trip</h2>
+          <h2 className="tp-header__title">Design Your <strong>Perfect </strong>Trip</h2>
           <p className="tp-header__sub">Tell us your dream — we'll craft every detail.</p>
         </div>
 
@@ -180,7 +180,7 @@ const TailorPage = () => {
             <div className="tp-sidebar__orb" aria-hidden />
             <div className="tp-sidebar__brand">
               <MdFlightTakeoff />
-              <span>Nepal Expeditions</span>
+              <span>Sacred Nepal</span>
             </div>
             <nav className="tp-sidebar__steps">
               {STEPS.map(item => <StepBadge key={item.id} item={item} current={step} />)}

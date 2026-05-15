@@ -22,7 +22,7 @@ const Associates = () => {
         
         <div className="headerWrapper" data-aos="fade-up">
           <h2 className="title">
-            Our Trusted <span>Network</span>
+            Our <span>Trusted </span>Network
           </h2>
           <div className="accentBar"></div>
         </div>

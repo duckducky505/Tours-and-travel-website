@@ -1,14 +1,4 @@
 /* --- Variables & Core Settings --- */
-:root {
-  --primary-color: #0073a8;
-  --secondary-color: #10b5cb;
-  --blackColor: #1b2d36;
-  --textColor: #58585f;
-  --whiteColor: #ffffff;
-  --greyText: #9ca3af;
-  --bodyColor: #f8fafb;
-}
-
 .why-choose-us {
   padding: 8rem 0;
   background: var(--whiteColor);
@@ -37,7 +27,7 @@
   font-weight: 800;
 }
 .why-choose-us .content-side .title span {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 .why-choose-us .content-side p {
   color: var(--textColor);

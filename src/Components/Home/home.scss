@@ -1,17 +1,17 @@
-:root{
-  --primary-color: #0073a8;
-  --secondary-color: #10b5cb;
-  --gradientColor:linear-gradient(to right, hsl(187,85%,43%),hsl(199,100%,33%));
-  --whiteColor: #ffffff;
-  --blackColor:#1b2d36;
-  --textColor:#58585f;
-  --whiteColorDream: hsl(0, 0%, 93%);
-  --greyText:rgb(190,190,190);
-  --inputColor:rgb(239,239,239);
-  --bodyColor:rgb(240,240,246);
-  --cardBg:rgb(255,255,235);
+// :root{
+//   --primary-color: #0073a8;
+//   --secondary-color: #10b5cb;
+//   --gradientColor:linear-gradient(to right, hsl(187,85%,43%),hsl(199,100%,33%));
+//   --whiteColor: #ffffff;
+//   --blackColor:#1b2d36;
+//   --textColor:#58585f;
+//   --whiteColorDream: hsl(0, 0%, 93%);
+//   --greyText:rgb(190,190,190);
+//   --inputColor:rgb(239,239,239);
+//   --bodyColor:rgb(240,240,246);
+//   --cardBg:rgb(255,255,235);
   
-}
+// }
 
 .home{
     width: 100%;
@@ -52,7 +52,7 @@
         align-items: stretch;
         justify-content: center;
         margin: auto;
-        color: var(--whiteColor);
+        color: var(--whiteColorDream);
         z-index: 100;
 
 
@@ -67,7 +67,7 @@
             .homeTitle{
                 position: relative;
                 font-size: 1.8rem;
-
+                color: var(--whiteColorDream);
             }
         }
 
@@ -173,10 +173,10 @@
             .icon{
                 font-size: 20px;
                 margin: 0 5px;
-                color: var(--whiteColor);
+                color: var(--whiteColorDream);
                 font-weight: 600;
                 &:hover{
-                    color: var(--primary-color);
+                    color: var(--secondary-color);
                 }
             }
         }

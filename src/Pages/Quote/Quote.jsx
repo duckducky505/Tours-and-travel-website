@@ -140,7 +140,7 @@ const QuotePage = () => {
 
     const formData = new FormData();
     Object.entries(fields).forEach(([k,v]) => formData.append(k, v));
-    formData.append('access_key', 'e2c2f621-23e3-4a36-b046-29918ac2eccd');
+    formData.append('access_key', '1709e26f-6476-43db-9e90-7c025af3959a');
 
     try {
       const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
@@ -195,7 +195,7 @@ const QuotePage = () => {
             <div className="qp-sidebar__orb" aria-hidden />
             <div className="qp-sidebar__brand">
               <MdFlightTakeoff />
-              <span>Nepal Expeditions</span>
+              <span>Sacred Nepal</span>
             </div>
             <nav className="qp-sidebar__steps">
               {STEPS.map(item => <StepBadge key={item.id} item={item} current={step} />)}
