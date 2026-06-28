@@ -30,7 +30,7 @@ const Intro = () => {
 
                     <div className="content-block" data-aos="fade-left">
                         <span className="subtitle">Discover Your Path</span>
-                        <h2 className="title">Nature’s Grandest <br/> Stage Awaits.</h2>
+                        <h2 className="title">Experience the Soul<br/> of Nepal</h2>
                         
                         <p className="highlight-text">
                             We don’t just show you Nepal; we help you feel the heartbeat of the Himalayas.

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { MdOutlineSecurity, MdOutlinePriceCheck, MdOutlineVerifiedUser, MdOutlineSupportAgent } from 'react-icons/md';
-import { GiMountainRoad } from 'react-icons/gi';
+import { MdOutlineSecurity, MdOutlinePriceCheck, MdOutlineVerifiedUser, MdOutlineSupportAgent, MdFlight, MdHotel, MdDirectionsCar, MdHiking } from 'react-icons/md';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import './Choose.css';
@@ -13,27 +12,27 @@ const Choose = () => {
   const features = [
     {
       id: 1,
-      icon: <MdOutlineSecurity />,
-      title: "Safety Intelligence",
-      desc: "Our expeditions are backed by satellite communication and medical-grade oxygen protocols."
+      icon: <MdFlight />,
+      title: "Flight Booking",
+      desc: "Hassle-free domestic and international flight arrangements tailored to your Nepal itinerary."
     },
     {
       id: 2,
-      icon: <MdOutlinePriceCheck />,
-      title: "Transparent Pricing",
-      desc: "No hidden permits or surprise costs. We provide a full breakdown before you commit."
+      icon: <MdHotel />,
+      title: "Luxury Hotels",
+      desc: "Hand-picked luxury accommodations offering comfort and authentic Himalayan hospitality."
     },
     {
       id: 3,
-      icon: <GiMountainRoad />,
-      title: "Expert Logistics",
-      desc: "Decades of experience in high-altitude planning ensures seamless transitions from city to summit."
+      icon: <MdDirectionsCar />,
+      title: "Private Vehicle Tour",
+      desc: "Explore at your own pace with our private, comfortable, and reliable vehicle services."
     },
     {
       id: 4,
-      icon: <MdOutlineSupportAgent />,
-      title: "24/7 Ground Support",
-      desc: "Our Kathmandu-based operations team is always active, ensuring real-time support during your trek."
+      icon: <MdHiking />,
+      title: "Adventure Activities",
+      desc: "From trekking to helicopter tours, we curate the ultimate adventure experiences."
     }
   ];
 
@@ -44,11 +43,11 @@ const Choose = () => {
           
           {/* Left Side: Content */}
           <div className="content-side" data-aos="fade-right">
-            <span className="subtitle">The Difference</span>
-            <h2 className="title">Why <span>Thousands</span> Trust Our Expeditions.</h2>
+            <span className="subtitle">What We Offer</span>
+            <h2 className="title">Your <span>Complete</span> Travel Experience.</h2>
             <p>
-              We don't just guide; we partner with you to ensure your Himalayan 
-              story is told with safety, authenticity, and respect for the local culture.
+              From the moment you land to the peak of your adventure, we handle every detail 
+              with precision, luxury, and professional care.
             </p>
             
             <div className="trust-badge flex">

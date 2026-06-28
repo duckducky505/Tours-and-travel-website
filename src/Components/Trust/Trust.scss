@@ -1,0 +1,324 @@
+// Trust Component
+// app.css variables in use:
+//   --primary-color:   #0D1B2A  (deep navy)
+//   --secondary-color: #D4AF37  (gold)
+//   --gradientColor:   linear-gradient(to right, #D4AF37, #0D1B2A)
+//   --whiteColor:      #ffffff
+//   --whiteColorDream: #F5EFE6
+//   --blackColor:      #1b2d36
+//   --textColor:       #58585f
+//   --bodyColor:       rgb(240,240,246)
+
+// ── Section wrapper ───────────────────────────────────────
+.tr-section {
+    background: var(--bodyColor);
+    padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+
+    // Subtle ambient glow top-right
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0; right: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+    }
+}
+
+// ── Stats band ────────────────────────────────────────────
+.tr-stats-band {
+    background: var(--whiteColorDream);
+    padding: 3.5rem 0;
+    position: relative;
+    overflow: hidden;
+
+    padding-bottom: 3.5rem;
+
+    // background texture lines
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            -55deg,
+            rgba(255,255,255,0.015) 0px,
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 40px
+        );
+        pointer-events: none;
+    }
+
+    // gold top border
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: var(--gradientColor);
+    }
+}
+
+.tr-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 860px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+}
+
+// ── Stat card ─────────────────────────────────────────────
+.tr-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    position: relative;
+    transition: background 0.3s ease;
+
+    // vertical separator
+    &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0; top: 20%; bottom: 20%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.08);
+
+        @media (max-width: 860px) {
+            display: none;
+        }
+    }
+
+    &:hover {
+        background: rgba(255,255,255,0.03);
+        .tr-stat-icon { color: var(--secondary-color); transform: scale(1.1) translateY(-3px); }
+        .tr-stat-line { width: 40px; }
+    }
+}
+
+.tr-stat-icon {
+    font-size: 2.2rem;
+    color: rgba(212, 175, 55, 0.7);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tr-stat-count {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.tr-stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(245, 239, 230, 0.45);
+    margin-bottom: 1.25rem;
+    color: var(--primary-color);
+}
+
+.tr-stat-line {
+    width: 24px;
+    height: 2px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+// ── Header ────────────────────────────────────────────────
+.tr-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 4rem auto 3.5rem;
+
+    .tr-eyebrow {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+
+    .tr-title {
+        font-size: clamp(1.9rem, 4vw, 2.7rem);
+        font-weight: 800;
+        color: var(--primary-color);
+        line-height: 1.15;
+        margin-bottom: 1.2rem;
+    }
+
+    .tr-title-line {
+        width: 50px;
+        height: 3px;
+        background: var(--secondary-color);
+        margin: 0 auto;
+        border-radius: 2px;
+    }
+}
+
+// ── Pillars ───────────────────────────────────────────────
+.tr-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 0 auto 4rem;
+
+    @media (max-width: 860px) {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+    }
+}
+
+.tr-pillar {
+    background: var(--whiteColor);
+    border: 1px solid rgba(13, 27, 42, 0.07);
+    border-radius: 20px;
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    // bottom gold sweep on hover
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 3px;
+        background: var(--gradientColor);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s ease;
+    }
+
+    &:hover {
+        border-color: rgba(212, 175, 55, 0.3);
+        box-shadow: 0 16px 40px rgba(13, 27, 42, 0.08);
+        transform: translateY(-6px);
+
+        &::after { transform: scaleX(1); }
+        .tr-pillar-icon { background: var(--primary-color); color: var(--secondary-color); }
+    }
+}
+
+.tr-pillar-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(13, 27, 42, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.tr-pillar-body {
+    strong {
+        display: block;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin-bottom: 0.6rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        color: var(--textColor);
+    }
+}
+
+// ── Bottom CTA row ────────────────────────────────────────
+.tr-bottom {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.2rem 2.8rem;
+    background: var(--primary-color);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+
+    // gold left accent bar
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 4px;
+        background: var(--secondary-color);
+        border-radius: 18px 0 0 18px;
+    }
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.8rem;
+    }
+}
+
+.tr-bottom-copy {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(245, 239, 230, 0.7);
+    line-height: 1.6;
+    max-width: 520px;
+}
+
+.tr-cta-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    padding: 13px 28px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+
+    .tr-cta-arrow {
+        font-size: 1.3rem;
+        transition: transform 0.25s ease;
+    }
+
+    &:hover {
+        background: var(--whiteColorDream);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+
+        .tr-cta-arrow { transform: translateX(4px); }
+    }
+}

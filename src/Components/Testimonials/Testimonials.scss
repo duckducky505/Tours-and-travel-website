@@ -1,0 +1,322 @@
+/* Variables from your app.css are assumed */
+
+.modern-tst-section {
+  background-color: var(--primary-color);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  /* Ambient Background Glows for a modern feel */
+  .modern-tst-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    opacity: 0.15;
+    pointer-events: none;
+
+    &.glow-1 {
+      top: -200px;
+      left: -100px;
+      background: var(--secondary-color);
+    }
+
+    &.glow-2 {
+      bottom: -200px;
+      right: -100px;
+      background: #ffffff;
+      opacity: 0.05;
+    }
+  }
+}
+
+.modern-tst-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ── Left Side: Header & Controls ── */
+.modern-tst-header {
+  .modern-tst-eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 40px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 2px;
+      background: var(--secondary-color);
+    }
+  }
+
+  .modern-tst-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: var(--whiteColorDream);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .modern-tst-subtitle {
+    color: var(--greyText); // Fallback to rgba(255,255,255,0.6) if variable doesn't exist
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 400px;
+  }
+
+  .modern-tst-controls {
+    display: flex;
+    gap: 1rem;
+
+    .modern-tst-nav-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--whiteColorDream);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        background: var(--secondary-color);
+        border-color: var(--secondary-color);
+        color: var(--primary-color);
+        transform: translateX(5px);
+      }
+
+      &:first-child:hover {
+        transform: translateX(-5px);
+      }
+    }
+  }
+}
+
+/* ── Right Side: Main Stage & Glass Card ── */
+.modern-tst-stage-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modern-tst-glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+
+  @media (max-width: 768px) {
+    padding: 2.5rem;
+  }
+
+  .modern-tst-quote-icon {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 12rem;
+    color: var(--secondary-color);
+    opacity: 0.05;
+    z-index: 0;
+    transform: rotate(-10deg);
+  }
+
+  .modern-tst-content {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &.sliding-out {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+    }
+
+    &.sliding-in {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .modern-tst-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.5rem;
+
+    .modern-tst-star {
+      color: rgba(255, 255, 255, 0.15);
+      font-size: 1rem;
+
+      &.filled {
+        color: var(--secondary-color);
+        filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+      }
+    }
+  }
+
+  .modern-tst-quote-text {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--whiteColorDream);
+    margin-bottom: 3rem;
+  }
+
+  .modern-tst-author-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    .modern-tst-avatar-lrg {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--whiteColorDream);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .modern-tst-author-info {
+      h4 {
+        color: var(--whiteColorDream);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+      }
+      span {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+/* ── Interactive Pill Strip (Thumbnails) ── */
+.modern-tst-indicators {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modern-tst-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-align: left;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.15);
+      
+      .modern-tst-pill-progress {
+        width: 100%;
+      }
+      
+      .modern-tst-pill-text .pill-name {
+        color: var(--secondary-color);
+      }
+    }
+
+    .modern-tst-pill-avatar {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .modern-tst-pill-text {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .pill-name {
+        color: var(--whiteColorDream);
+        font-size: 0.8rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.3s ease;
+      }
+
+      .pill-trip {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    /* Animated progress bar at the bottom of the active pill */
+    .modern-tst-pill-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+  }
+}

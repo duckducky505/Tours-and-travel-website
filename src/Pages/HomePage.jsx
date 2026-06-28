@@ -5,6 +5,9 @@ import Intro from "../Components/Introduction/Intro"
 import Main from "../Components/Main/Main"
 
 import Data from "../Components/Trip/TripData"
+import Testimonials from "../Components/Testimonials/Testimonials"
+import FAQ from "../Components/FAQ/FAQ"
+import Trust from "../Components/Trust/Trust"
 
 const HomePage = () => {
 
@@ -28,7 +31,10 @@ const HomePage = () => {
         <HomeCompo onSearch={handleSearch}/>
         <Intro/>
         <Main trips={filteredTrips}/>
+        <Trust/>
         <Choose/>
+        <FAQ/>
+        <Testimonials/>
     </>
     )
 }
