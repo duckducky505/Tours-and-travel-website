@@ -9,6 +9,76 @@ import { MdClose } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
 import './Packages.scss';
 
+// FIXED: Moved FilterPanel outside of the Packages component so it doesn't recreate on every keystroke
+const FilterPanel = ({ 
+  onClose, 
+  isMobile, 
+  minValue, 
+  setMinValue, 
+  maxValue, 
+  setMaxValue, 
+  duration, 
+  setDuration, 
+  applyFiltersBtn, 
+  clearAll 
+}) => (
+  <div className="stickyFilter">
+    <div className="filterHeading">
+      <BiFilterAlt className="icon" />
+      <h3>Filters</h3>
+      {isMobile && (
+        <button className="drawerClose" type="button" onClick={onClose}>
+          <MdClose />
+        </button>
+      )}
+    </div>
+
+    <div className="filterBlock">
+      <label>Budget Range (USD)</label>
+      <div className="priceInputs">
+        <div className="inputBox">
+          <span>Min</span>
+          <input
+            type="number" placeholder="0" min={0}
+            value={minValue}
+            onChange={e => setMinValue(e.target.value)}
+          />
+        </div>
+        <div className="divider">—</div>
+        <div className="inputBox">
+          <span>Max</span>
+          <input
+            type="number" placeholder="2500"
+            value={maxValue}
+            onChange={e => setMaxValue(e.target.value)}
+          />
+        </div>
+      </div>
+    </div>
+
+    <div className="filterBlock">
+      <label>Trip Duration</label>
+      <select
+        className="filterSelect"
+        value={duration}
+        onChange={e => setDuration(e.target.value)}
+      >
+        <option value="">Any Duration</option>
+        <option value="short">1 – 5 Days</option>
+        <option value="medium">6 – 10 Days</option>
+        <option value="long">11+ Days</option>
+      </select>
+    </div>
+
+    <button className="applyBtn" type="button" onClick={applyFiltersBtn}>
+      Apply Filters
+    </button>
+    <button className="clearBtn" type="button" onClick={clearAll}>
+      Clear All
+    </button>
+  </div>
+);
+
 const Packages = () => {
   const location = useLocation();
 
@@ -29,7 +99,8 @@ const Packages = () => {
       Data.filter(p =>
         p.location?.toLowerCase().includes(q) ||
         p.destTitle?.toLowerCase().includes(q) ||
-        p.tagline?.toLowerCase().includes(q)
+        p.tagline?.toLowerCase().includes(q) ||
+        p.activities?.some(act => act.toLowerCase().includes(q))
       )
     );
     setCurrentPage(1);
@@ -39,15 +110,14 @@ const Packages = () => {
     const params = new URLSearchParams(location.search);
     const dest = params.get('dest');
     const dur  = params.get('dur');
-    const prc  = params.get('prc');
+    const acti = params.get('act') || params.get('acti'); 
 
-    if (dest || dur || prc) {
+    if (dest || dur || acti) {
       setFilteredTrips(Data.filter(trip => {
         const matchDest  = !dest || trip.location === dest;
         const matchDur   = !dur  || trip.duration === dur;
-        const tripPrice  = parseInt(trip.fees.replace(/[$,]/g, ''));
-        const matchPrice = !prc  || tripPrice <= parseInt(prc);
-        return matchDest && matchDur && matchPrice;
+        const matchAct   = !acti || (trip.activities && trip.activities.includes(acti));
+        return matchDest && matchDur && matchAct;
       }));
       setCurrentPage(1);
     }
@@ -102,64 +172,6 @@ const Packages = () => {
 
   const hasActiveFilters = minValue !== '' || maxValue !== '' || duration !== '';
 
-  const FilterPanel = ({ onClose, isMobile }) => (
-    <div className="stickyFilter">
-      <div className="filterHeading">
-        <BiFilterAlt className="icon" />
-        <h3>Filters</h3>
-        {isMobile && (
-          <button className="drawerClose" type="button" onClick={onClose}>
-            <MdClose />
-          </button>
-        )}
-      </div>
-
-      <div className="filterBlock">
-        <label>Budget Range (USD)</label>
-        <div className="priceInputs">
-          <div className="inputBox">
-            <span>Min</span>
-            <input
-              type="number" placeholder="0" min={0}
-              value={minValue}
-              onChange={e => setMinValue(e.target.value)}
-            />
-          </div>
-          <div className="divider">—</div>
-          <div className="inputBox">
-            <span>Max</span>
-            <input
-              type="number" placeholder="2500"
-              value={maxValue}
-              onChange={e => setMaxValue(e.target.value)}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="filterBlock">
-        <label>Trip Duration</label>
-        <select
-          className="filterSelect"
-          value={duration}
-          onChange={e => setDuration(e.target.value)}
-        >
-          <option value="">Any Duration</option>
-          <option value="short">1 – 5 Days</option>
-          <option value="medium">6 – 10 Days</option>
-          <option value="long">11+ Days</option>
-        </select>
-      </div>
-
-      <button className="applyBtn" type="button" onClick={applyFiltersBtn}>
-        Apply Filters
-      </button>
-      <button className="clearBtn" type="button" onClick={clearAll}>
-        Clear All
-      </button>
-    </div>
-  );
-
   return (
     <section className="packagesPage">
 
@@ -167,7 +179,19 @@ const Packages = () => {
         <div className="drawerOverlay" onClick={() => setDrawerOpen(false)}>
           <div className="filterDrawer" onClick={e => e.stopPropagation()}>
             <div className="drawerHandle" />
-            <FilterPanel isMobile onClose={() => setDrawerOpen(false)} />
+            {/* FIXED: Passed necessary props down to FilterPanel */}
+            <FilterPanel 
+              isMobile 
+              onClose={() => setDrawerOpen(false)} 
+              minValue={minValue}
+              setMinValue={setMinValue}
+              maxValue={maxValue}
+              setMaxValue={setMaxValue}
+              duration={duration}
+              setDuration={setDuration}
+              applyFiltersBtn={applyFiltersBtn}
+              clearAll={clearAll}
+            />
           </div>
         </div>
       )}
@@ -194,7 +218,18 @@ const Packages = () => {
       <div className="mainLayout container">
 
         <aside className="sidebar">
-          <FilterPanel isMobile={false} />
+          {/* FIXED: Passed necessary props down to FilterPanel */}
+          <FilterPanel 
+            isMobile={false} 
+            minValue={minValue}
+            setMinValue={setMinValue}
+            maxValue={maxValue}
+            setMaxValue={setMaxValue}
+            duration={duration}
+            setDuration={setDuration}
+            applyFiltersBtn={applyFiltersBtn}
+            clearAll={clearAll}
+          />
         </aside>
 
         <main className="packagesContent">

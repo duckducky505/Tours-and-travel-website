@@ -1,138 +1,235 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MdTimer, MdHotel, MdGroups, MdFlightLand, MdCheck, MdClose, MdLocationOn } from 'react-icons/md';
-import Data from './TripData'; 
+import {
+    MdTimer,
+    MdFlightLand,
+    MdCheck,
+    MdClose,
+    MdLocationOn,
+    MdLocalActivity,
+} from 'react-icons/md';
+import { BsArrowRightShort } from 'react-icons/bs';
+import Data from './TripData';
 import './NepalTripLayout.css';
 
 const NepalTripLayout = () => {
-  const { slug } = useParams();
-  const [activeTab, setActiveTab] = useState('overview');
+    const { slug } = useParams();
+    const [activeTab, setActiveTab] = useState('overview');
 
-  const trip = Data.find(item => item.slug === slug);
+    const trip = Data.find(item => item.slug === slug);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [slug]);
 
-  if (!trip) {
+    if (!trip) {
+        return (
+            <div className="ntl-error">
+                <h2>Trip not found</h2>
+                <Link to="/" className="ntl-back-btn">Back to Home</Link>
+            </div>
+        );
+    }
+
     return (
-      <div className="error-container">
-        <h2>Trip not found!</h2>
-        <Link to="/" className="btn-primary">Back to Home</Link>
-      </div>
-    );
-  }
+        <div className="ntl-page">
 
-  return (
-    <div className="trip-page">
-      <header className="trip-hero">
-        <div className="container">
-          <div className="hero-content">
-            <span className="badge">{trip.tagline}</span>
-            <h1>{trip.destTitle}</h1>
-            <div className="hero-meta">
-              <span><MdLocationOn /> {trip.location}</span>
-              <span className="divider">|</span>
-              <span>{trip.duration}</span>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="container">
-        <div className="floating-bar">
-          <div className="bar-item">
-            <MdTimer className="icon" />
-            <div>
-              <small>Duration</small>
-              <p>{trip.duration}</p>
-            </div>
-          </div>
-          <div className="bar-item">
-            <MdFlightLand className="icon" />
-            <div>
-              <small>Difficulty</small>
-              <p>{trip.grade}</p>
-            </div>
-          </div>
-          <div className="bar-item price-item">
-            <div className="price-text">
-              <small>Starting from</small>
-              <h3>{trip.fees}</h3>
-            </div>
-            <Link className="book-btn" to="/quote">Book Now</Link>
-          </div>
-        </div>
-
-        <nav className="tab-nav">
-          {['Overview', 'Itinerary', 'Inclusions'].map((tab) => (
-            <button
-              key={tab}
-              className={activeTab === tab.toLowerCase() ? 'active' : ''}
-              onClick={() => setActiveTab(tab.toLowerCase())}
+            {/* ── Hero ── */}
+            <header
+                className="ntl-hero"
+                style={{ backgroundImage: `linear-gradient(to bottom, rgba(13,27,42,0.35) 0%, rgba(13,27,42,0.72) 100%), url(${trip.imgSrc})` }}
             >
-              {tab}
-            </button>
-          ))}
-        </nav>
+                <div className="container">
+                    <div className="ntl-hero-content">
+                        <span className="ntl-badge">{trip.tagline}</span>
+                        <h1 className="ntl-hero-title">{trip.destTitle}</h1>
 
-        <main className="main-content-card">
-          {activeTab === 'overview' && (
-            <section className="tab-panel fade-in">
-              <h3>About this Trip</h3>
-              <p className="description-text">{trip.description}</p>
-            </section>
-          )}
+                        <div className="ntl-hero-meta">
+                            <span className="ntl-meta-item">
+                                <MdLocationOn className="ntl-meta-icon" /> {trip.location}
+                            </span>
+                            <span className="ntl-meta-divider" />
+                            <span className="ntl-meta-item">
+                                <MdTimer className="ntl-meta-icon" /> {trip.duration}
+                            </span>
+                            <span className="ntl-meta-divider" />
+                            <span className="ntl-meta-item">
+                                <MdFlightLand className="ntl-meta-icon" /> {trip.grade}
+                            </span>
+                        </div>
 
-          {activeTab === 'itinerary' && (
-            <section className="tab-panel fade-in">
-              <h3>Detailed Itinerary</h3>
-              <div className="timeline">
-                {trip.itinerary?.map((item) => (
-                  <div className="timeline-item" key={item.day}>
-                    <div className="day-circle">Day {item.day}</div>
-                    <div className="timeline-text">
-                      <h4>{item.title}</h4>
-                      <p>Experience the scenic beauty and cultural richness of the region.</p>
+                        {trip.activities && (
+                            <div className="ntl-activity-chips">
+                                {trip.activities.map(act => (
+                                    <span key={act} className="ntl-chip">
+                                        <MdLocalActivity className="ntl-chip-icon" /> {act}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
+                </div>
+            </header>
 
-          {activeTab === 'inclusions' && (
-            <section className="tab-panel inclusions-split fade-in">
-              <div className="inc-column">
-                <h4>What's Included</h4>
-                <ul>
-                  {trip.includes?.map((i) => (
-                    <li key={i}><MdCheck className="check-icon" /> {i}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="exc-column">
-                <h4>What's Excluded</h4>
-                <ul>
-                  {trip.excludes?.map((i) => (
-                    <li key={i}><MdClose className="close-icon" /> {i}</li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-          )}
-        </main>
+            <div className="container">
 
-        <section className="help-section">
-          <div className="help-content">
-            <h2>Still have questions?</h2>
-            <p>Our travel experts are ready to help you plan your perfect trek to {trip.destTitle}.</p>
-          </div>
-          <button className="contact-btn">Contact Specialist</button>
-        </section>
-      </div>
-    </div>
-  );
+                {/* ── Floating bar ── */}
+                <div className="ntl-floating-bar">
+                    <div className="ntl-bar-item">
+                        <div className="ntl-bar-icon-wrap">
+                            <MdTimer />
+                        </div>
+                        <div>
+                            <small>Duration</small>
+                            <p>{trip.duration}</p>
+                        </div>
+                    </div>
+
+                    <div className="ntl-bar-item">
+                        <div className="ntl-bar-icon-wrap">
+                            <MdFlightLand />
+                        </div>
+                        <div>
+                            <small>Category</small>
+                            <p>{trip.grade}</p>
+                        </div>
+                    </div>
+
+                    <div className="ntl-bar-price">
+                        <div className="ntl-price-text">
+                            <small>Starting from</small>
+                            <h3>{trip.fees}</h3>
+                        </div>
+                        <Link className="ntl-book-btn" to="/quote">
+                            Book Now <BsArrowRightShort className="ntl-book-arrow" />
+                        </Link>
+                    </div>
+                </div>
+
+                {/* ── Tab nav ── */}
+                <nav className="ntl-tab-nav">
+                    {['Overview', 'Itinerary', 'Inclusions'].map(tab => (
+                        <button
+                            key={tab}
+                            className={`ntl-tab-btn ${activeTab === tab.toLowerCase() ? 'ntl-tab-btn--active' : ''}`}
+                            onClick={() => setActiveTab(tab.toLowerCase())}
+                        >
+                            {tab}
+                        </button>
+                    ))}
+                </nav>
+
+                {/* ── Tab panels ── */}
+                <main className="ntl-card">
+
+                    {/* Overview */}
+                    {activeTab === 'overview' && (
+                        <section className="ntl-panel ntl-fade-in">
+                            <div className="ntl-overview-grid">
+                                {/* Left: image */}
+                                <div className="ntl-overview-img-wrap">
+                                    <img src={trip.imgSrc} alt={trip.destTitle} className="ntl-overview-img" />
+                                    <div className="ntl-overview-price-tag">{trip.fees}</div>
+                                </div>
+
+                                {/* Right: content */}
+                                <div className="ntl-overview-body">
+                                    <span className="ntl-section-eyebrow">About This Trip</span>
+                                    <h3 className="ntl-section-title">{trip.destTitle}</h3>
+                                    <div className="ntl-title-line" />
+                                    <p className="ntl-desc-text">{trip.description}</p>
+
+                                    {/* Activity tags repeated here for easy scanning */}
+                                    {trip.activities && (
+                                        <div className="ntl-activity-tags">
+                                            <strong>Activities:</strong>
+                                            <div className="ntl-tags-row">
+                                                {trip.activities.map(act => (
+                                                    <span key={act} className="ntl-tag">{act}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Itinerary */}
+                    {activeTab === 'itinerary' && (
+                        <section className="ntl-panel ntl-fade-in">
+                            <span className="ntl-section-eyebrow">Day by Day</span>
+                            <h3 className="ntl-section-title">Your Journey</h3>
+                            <div className="ntl-title-line" />
+
+                            <div className="ntl-timeline">
+                                {trip.itinerary?.map((item, i) => (
+                                    <div className="ntl-timeline-item" key={item.day}>
+                                        <div className="ntl-day-pill">Day {item.day}</div>
+                                        <div className="ntl-timeline-connector">
+                                            <div className="ntl-connector-dot" />
+                                            {i < trip.itinerary.length - 1 && <div className="ntl-connector-line" />}
+                                        </div>
+                                        <div className="ntl-timeline-body">
+                                            <h4>{item.title}</h4>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Inclusions */}
+                    {activeTab === 'inclusions' && (
+                        <section className="ntl-panel ntl-fade-in">
+                            <span className="ntl-section-eyebrow">What's Covered</span>
+                            <h3 className="ntl-section-title">Package Details</h3>
+                            <div className="ntl-title-line" />
+
+                            <div className="ntl-inc-grid">
+                                <div className="ntl-inc-col">
+                                    <div className="ntl-inc-header ntl-inc-header--green">
+                                        <MdCheck /> Included
+                                    </div>
+                                    <ul className="ntl-inc-list">
+                                        {trip.includes?.map(item => (
+                                            <li key={item} className="ntl-inc-item">
+                                                <MdCheck className="ntl-inc-check" /> {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="ntl-inc-col">
+                                    <div className="ntl-inc-header ntl-inc-header--red">
+                                        <MdClose /> Excluded
+                                    </div>
+                                    <ul className="ntl-inc-list">
+                                        {trip.excludes?.map(item => (
+                                            <li key={item} className="ntl-exc-item">
+                                                <MdClose className="ntl-exc-close" /> {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    )}
+                </main>
+
+                {/* ── Help strip ── */}
+                <section className="ntl-help">
+                    <div className="ntl-help-text">
+                        <h2>Still have questions?</h2>
+                        <p>Our travel experts are ready to help you plan your perfect trip to {trip.destTitle}.</p>
+                    </div>
+                    <Link to="/contact" className="ntl-contact-btn">
+                        Speak to a Specialist <BsArrowRightShort className="ntl-contact-arrow" />
+                    </Link>
+                </section>
+
+            </div>
+        </div>
+    );
 };
 
 export default NepalTripLayout;

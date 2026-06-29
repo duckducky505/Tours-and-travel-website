@@ -7,6 +7,7 @@ import { FaTripadvisor } from 'react-icons/fa';
 import { BsListTask } from 'react-icons/bs';
 import { TbApps } from 'react-icons/tb';
 import { CiSearch } from 'react-icons/ci';
+import { MdOutlineLocalActivity } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 import Data from "../../Components/Trip/TripData";
@@ -20,14 +21,17 @@ const Home = () => {
     // Dropdown Data derivation
     const dropDestination = [...new Set(Data.map(item => item.location))];
     const dropDuration = [...new Set(Data.map(item => item.duration))].sort((a, b) => parseInt(a) - parseInt(b));
+    
+    // Extract unique activities from the nested arrays in TripData
+    const dropActivities = [...new Set(Data.flatMap(item => item.activities))].sort();
 
     // State
     const [destination, setDestination] = useState("");
     const [duration, setDuration] = useState("");
-    const [price, setPrice] = useState(2000);
+    const [activity, setActivity] = useState("");
 
     const handleSearch = () => {
-        navigate(`/packages?dest=${destination}&dur=${duration}&prc=${price}`);
+        navigate(`/packages?dest=${destination}&dur=${duration}&act=${activity}`);
     };
 
     useEffect(() => {
@@ -82,19 +86,19 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="priceInput">
-                        <div className="label_total flex">
-                            <label htmlFor="price">Max Budget:</label>
-                            <h3 className="total">${price}</h3>
-                        </div>
+                    <div className="activityInput">
+                        <label htmlFor="activity">Select an Activity:</label>
                         <div className="input flex">
-                            <input 
-                                type="range" 
-                                max="5000" 
-                                min="500" 
-                                value={price} 
-                                onChange={(e) => setPrice(e.target.value)} 
-                            />
+                            <select 
+                                value={activity} 
+                                onChange={(e) => setActivity(e.target.value)}
+                            >
+                                <option value="">All Activities</option>
+                                {dropActivities.map((act, index) => (
+                                    <option key={index} value={act}>{act}</option>
+                                ))}
+                            </select>
+                            <MdOutlineLocalActivity className="icon" />
                         </div>
                     </div>
 

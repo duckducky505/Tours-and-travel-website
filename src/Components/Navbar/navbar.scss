@@ -1,16 +1,15 @@
-:root{
+:root {
   --primary-color: #0D1B2A;
   --secondary-color: #D4AF37;
-  --gradientColor:linear-gradient(to right, #D4AF37,#0D1B2A);
+  --gradientColor: linear-gradient(to right, #D4AF37, #0D1B2A);
   --whiteColor: #ffffff;
-  --blackColor:#1b2d36;
-  --textColor:#58585f;
+  --blackColor: #1b2d36;
+  --textColor: #58585f;
   --whiteColorDream: hsl(0, 0%, 93%);
-  --greyText:rgb(190,190,190);
-  --inputColor:rgb(239,239,239);
-  --bodyColor:rgb(240,240,246);
-  --cardBg:rgb(255,255,235);
-  
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBg: rgb(255, 255, 235);
 }
 
 $trans: .3s ease;
@@ -20,7 +19,6 @@ $trans: .3s ease;
   z-index: 1000;
 }
 
-// Full-width sticky bar
 .header {
   position: fixed;
   top: 0;
@@ -37,12 +35,13 @@ $trans: .3s ease;
     justify-content: space-between;
     padding-top: .9rem;
     padding-bottom: .9rem;
+    gap: 1rem;
   }
 }
 
 // ── Logo ──────────────────────────────────────────────────────
 .logoDiv {
-  flex-shrink: 0;   // stop it squishing when nav links crowd in
+  flex-shrink: 0;
 }
 
 .logo {
@@ -61,14 +60,44 @@ $trans: .3s ease;
   }
 }
 
-
 .logoImg {
-  height: 42px;          // controls navbar height — tweak freely
-  width: auto;           // keeps aspect ratio intact
-  max-width: 180px;      // hard cap so a very wide image can't overflow
-  display: block;        // removes the inline baseline gap
+  height: 42px;
+  width: auto;
+  max-width: 180px;
+  display: block;
   object-fit: contain;
   border-radius: 10px;
+}
+
+// ── Quote button — shared base ─────────────────────────────────
+.nav-quote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: .3px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all $trans;
+
+  // Gold background, navy text — inverted from the navbar
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+
+  .nav-quote-icon {
+    font-size: 1rem;
+    transition: transform $trans;
+  }
+
+  &:hover {
+    background: transparent;
+    color: var(--secondary-color);
+    .nav-quote-icon { transform: translateX(4px); }
+  }
 }
 
 // ── Toggle (hamburger) ────────────────────────────────────────
@@ -86,6 +115,12 @@ $trans: .3s ease;
 
 // ── MOBILE (≤ 768px) ─────────────────────────────────────────
 @media screen and (max-width: 768px) {
+
+  // Desktop quote btn hidden on mobile
+  .nav-quote-btn--desktop {
+    display: none;
+  }
+
   .navBar {
     position: absolute;
     background: var(--whiteColorDream);
@@ -126,6 +161,19 @@ $trans: .3s ease;
     &:hover { color: var(--secondary-color); }
   }
 
+  // Mobile quote btn — full width inside drawer
+  .navItem--quote-mobile {
+    padding: .75rem 1.25rem 1rem;
+    width: 100%;
+
+    .nav-quote-btn {
+      width: 100%;
+      justify-content: center;
+      font-size: .88rem;
+      padding: 10px 16px;
+    }
+  }
+
   .closeNavbar {
     position: absolute;
     top: 1rem;
@@ -142,6 +190,11 @@ $trans: .3s ease;
 @media screen and (min-width: 769px) {
   .toggleNavbar,
   .closeNavbar { display: none; }
+
+  // Mobile quote btn hidden on desktop
+  .navItem--quote-mobile {
+    display: none;
+  }
 
   .navBar {
     position: static;
@@ -174,9 +227,9 @@ $trans: .3s ease;
     &:hover { color: var(--secondary-color); }
   }
 
-  .btn {
-    margin-left: 1rem;
-    a { color: var(--whiteColor); font-weight: 500; }
+  .nav-quote-btn--desktop {
+    margin-left: .75rem;
+    flex-shrink: 0;
   }
 }
 

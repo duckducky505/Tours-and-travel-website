@@ -74,6 +74,7 @@ li{
   font-weight: 500;
 }
 
+
 .btn:hover{
   background: var(--secondary-color);
 }
