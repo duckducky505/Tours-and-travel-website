@@ -1,14 +1,3 @@
-// FAQ Component
-// Variables from app.css:
-//   --primary-color:    #0D1B2A  (deep navy)
-//   --secondary-color:  #D4AF37  (gold)
-//   --gradientColor:    linear-gradient(to right, #D4AF37, #0D1B2A)
-//   --whiteColor:       #ffffff
-//   --whiteColorDream:  #F5EFE6
-//   --blackColor:       #1b2d36
-//   --textColor:        #58585f
-//   --bodyColor:        rgb(240,240,246)
-
 // ── Section ──────────────────────────────────────────────
 .faq-section {
     background: var(--whiteColorDream);
@@ -53,7 +42,7 @@
 
     .faq-eyebrow {
         display: block;
-        font-size: 0.72rem;
+        font-size: 1.1rem;
         font-weight: 700;
         letter-spacing: 4px;
         text-transform: uppercase;

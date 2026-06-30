@@ -3,7 +3,7 @@ import { MdOutlineTravelExplore, MdOutlineBeachAccess } from 'react-icons/md';
 import { AiOutlineSafetyCertificate, AiOutlineHeart } from 'react-icons/ai';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import img from "../../assets/annapurna.jpg"; 
+import img from "../../assets/annapurna-replace.jpg"; 
 import { Link } from 'react-router-dom';
 import './Intro.css';
 

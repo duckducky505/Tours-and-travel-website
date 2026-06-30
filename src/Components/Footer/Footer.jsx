@@ -3,6 +3,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { FiArrowRight, FiInstagram, FiTwitter, FiYoutube, FiFacebook } from 'react-icons/fi';
 import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
+import { SiTiktok } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import video2 from '../../assets/video1.webm';
 import logo from '../../assets/logo-bg-remove.png';
@@ -49,10 +50,9 @@ const Footer = () => {
                             lasting impact.
                         </p>
                         <div className="brand-socials">
-                            <a href="#" aria-label="Instagram"><FiInstagram /></a>
-                            <a href="#" aria-label="Twitter"><FiTwitter /></a>
-                            <a href="#" aria-label="YouTube"><FiYoutube /></a>
-                            <a href="#" aria-label="Facebook"><FiFacebook /></a>
+                            <a href="https://www.facebook.com/share/1D4Ed8rLf4/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><FiFacebook /></a>
+                            <a href="https://www.instagram.com/sacrednepalofficial?utm_source=qr" target="_blank" aria-label="Instagram"><FiInstagram /></a>
+                            <a href="https://www.tiktok.com/@sacrednepalofficial?_r=1&_t=ZS-97dX4MXuDeD" target="_blank" aria-label="Tiktok"><SiTiktok /></a>
                         </div>
                     </div>
 

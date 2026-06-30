@@ -9,9 +9,8 @@ import { TbApps } from 'react-icons/tb';
 import { CiSearch } from 'react-icons/ci';
 import { MdOutlineLocalActivity } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-
 import Data from "../../Components/Trip/TripData";
-import poster from '../../assets/by-the-lake.jpg';
+import poster from '../../assets/pashupatinath-home.jpg';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -110,9 +109,9 @@ const Home = () => {
 
                 <div data-aos="fade-up" className="homeFooterIcons flex">
                     <div className="rightIcons">
-                        <FiFacebook className="icon" />
-                        <AiOutlineInstagram className="icon" />
-                        <FaTripadvisor className="icon" />
+                        <a href="https://www.facebook.com/share/1D4Ed8rLf4/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"> <FiFacebook className="icon" /> </a>
+                        <a href="https://www.instagram.com/sacrednepalofficial?utm_source=qr" target="_blank" aria-label="Instagram"><AiOutlineInstagram className="icon" /> </a>
+                        
                     </div>
                     <div className="leftIcons flex">
                         <BsListTask className="icon" />
