@@ -13,6 +13,8 @@ import Quote from './Pages/Quote/Quote'
 import NepalTripLayout from './Components/Trip/NepalTripLayout'
 import WhattsappIcon from './Components/Whattsapp/WhattsappIcon'
 import { ScrollBehaviour } from './Routes/ScrollBehaviour'
+import TermsAndConditions from './Pages/CompanyPages/TermsAndConditions'
+import Privacy from './Pages/CompanyPages/Privacy'
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
           <Route path='/search' element={<NepalTripLayout />} />
           <Route path='/quote' element={<Quote />} />
           <Route path="/trip/:slug" element={<NepalTripLayout data={tripData} />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions/>}/>
+          <Route path="/privacy-policy" element={<Privacy/>}/>
+
         </Routes>
 
         <WhattsappIcon />

@@ -93,8 +93,8 @@ const Footer = () => {
                 <div className="footer-bottom">
                     <p className="copyright">© 2026 TRAVEL. Built for Adventure.</p>
                     <div className="bottom-links">
-                        <Link to="/terms">Terms and Conditions</Link>
-                        <Link to="/privacy">Privacy Policy</Link>
+                        <Link to="/terms-and-conditions">Terms and Conditions</Link>
+                        <Link to="/privacy-policy">Privacy Policy</Link>
                     </div>
                 </div>
             </div>
