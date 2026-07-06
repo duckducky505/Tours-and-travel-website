@@ -69,10 +69,10 @@ const Footer = () => {
                     <div className="footer-links-group" data-aos="fade-up" data-aos-delay="200">
                         <h5>Destinations</h5>
                         <nav>
-                            <Link to="/trip/everest-base-camp-classic">Everest Region</Link>
-                            <Link to="/trip/annapurna-panorama-trek">Annapurna Circuit</Link>
-                            <Link to="/mustang">Upper Mustang</Link>
-                            <Link to="/pokhara">Pokhara Valley</Link>
+                            <Link to="/trip/manang-adventure-tour">Manang</Link>
+                            <Link to="/trip/upper-mustang-jeep-tour">Upper Mustang</Link>
+                            <Link to="/trip/jomsom-muktinath-tour">Muktinath</Link>
+                            <Link to="/trip/ghandruk-tour-package">Ghandruk</Link>
                         </nav>
                     </div>
 

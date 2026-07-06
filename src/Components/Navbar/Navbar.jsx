@@ -10,6 +10,9 @@ import logo from '../../assets/nodescpimg.png';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const phoneNumber = "9779856089339"; 
+  const message = "Hello! I'd like to inquire about a travel package.";
+
   return (
     <section className="navBarSection">
       <header className="header">
@@ -36,7 +39,7 @@ const Navbar = () => {
                 <Link to="/team-members" className="navLink" onClick={() => setIsOpen(false)}>Meet Our Team</Link>
               </li>
               <li className="navItem">
-                <Link to="/tailor-made" className="navLink" onClick={() => setIsOpen(false)}>Tailor Made</Link>
+                <Link to="/tailor-made" className="navLink" onClick={() => setIsOpen(false)}>Customized Tours</Link>
               </li>
 
               {/* Mobile only — quote btn inside drawer */}
@@ -52,10 +55,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop only — quote btn outside drawer */}
-          <Link to="/quote" className="nav-quote-btn nav-quote-btn--desktop">
-            Get Your Free Quote <FiArrowRight className="nav-quote-icon" />
+          <Link to={`tel:phoneNumber}`} className="nav-quote-btn nav-quote-btn--desktop">
+              Contact
           </Link>
+          {/* Desktop only — quote btn outside drawer */}
+          {/* <Link to="/quote" className="nav-quote-btn nav-quote-btn--desktop">
+            Get Your Free Quote <FiArrowRight className="nav-quote-icon" />
+          </Link> */}
 
           <div className="toggleNavbar" onClick={() => setIsOpen(true)}>
             <TbGridDots className="icon" />

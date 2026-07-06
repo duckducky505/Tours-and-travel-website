@@ -10,7 +10,7 @@ import { CiSearch } from 'react-icons/ci';
 import { MdOutlineLocalActivity } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import Data from "../../Components/Trip/TripData";
-import poster from '../../assets/pashupatinath-home.jpg';
+import poster from '../../assets/pashupatinath.png';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -77,7 +77,7 @@ const Home = () => {
                                 value={duration} 
                                 onChange={(e) => setDuration(e.target.value)}
                             >
-                                <option value="">Any Duration</option>
+                                <option value="">Duration</option>
                                 {dropDuration.map((dura, index) => (
                                     <option key={index} value={dura}>{dura}</option>
                                 ))}
